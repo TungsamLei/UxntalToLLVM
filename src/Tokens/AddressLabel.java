@@ -6,7 +6,7 @@ Address labels: they start with `@` or `&` and are arbitrary strings, for exampl
 
 package Tokens;
 
-public class AddressLabel {
+public class AddressLabel extends TokenObject{
     char indication;
     String content;
     byte byteCount;

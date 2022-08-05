@@ -6,7 +6,7 @@ package Tokens;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RawConstant {
+public class RawConstant extends TokenObject{
     String content;
 
     public RawConstant(String content) {

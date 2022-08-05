@@ -3,45 +3,66 @@ Operations: three capital letters followed optionally by a `2`, `k` and/or `r`, 
  */
 package Tokens;
 
-public class Operation {
-    String content;
-    char operation;
+import OperationType.UxnOperationType;
 
-    public Operation(String content, char operation) {
-        this.content = content;
-        this.operation = operation;
+public class Operation extends TokenObject {
+    String content; // the three capital letters
+    String pattern; // the following "2,k,r"
+
+    public Operation() {
     }
 
-    public boolean isOperation(String content, char operation) {
-        for (char c : content.toCharArray()) {
-            if (Character.isLowerCase(c)) {
-                return false;
+    public Operation(String content, String pattern) {
+        this.content = content;
+        this.pattern = pattern;
+    }
+
+    public boolean isOperation(String content) {
+        boolean include = false;
+        for (UxnOperationType e : UxnOperationType.values()) {
+            if (e.getOperation() == content) {
+                include = true;
+                break;
             }
         }
-        if (operation != '2' || operation != 'k' || operation != 'r') {
-            return false;
-        }
-        return true;
+        return include;
     }
+
+    public boolean isPattern(String pattern) {
+        for (char c : pattern.toCharArray()) {
+            if (Character.isLowerCase(c)) {
+                if (c == '2' || c == 'k' || c != 'r' || c != '\0') {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
-        this.content = content;
+        if (isOperation(content)) {
+            this.content = content;
+        } else System.out.println("Error: Not a valid operation type.");
     }
 
-    public char getOperation() {
-        return operation;
+    public String getPattern() {
+        return pattern;
     }
 
-    public void setOperation(char operation) {
-        this.operation = operation;
+    public void setPattern(String pattern) {
+        if (isOperation(pattern)) {
+            this.pattern = pattern;
+        } else System.out.println("Error: Not a valid operation pattern.");
     }
 
     @Override
     public String toString() {
-        return getContent() + getOperation();
+        return getContent() + getPattern();
     }
 }
+

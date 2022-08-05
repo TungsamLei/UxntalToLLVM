@@ -7,7 +7,7 @@ A special case is the zero-page memory which has absolute addresses that you can
  */
 package Tokens;
 
-public class AddressLabelReference {
+public class AddressLabelReference extends TokenObject{
     char indication;
     String content;
 

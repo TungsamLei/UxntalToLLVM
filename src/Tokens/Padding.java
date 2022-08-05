@@ -3,7 +3,7 @@ Padding, this is a way to allocate memory. Absolute padding is indicated with `|
  */
 package Tokens;
 
-public class Padding {
+public class Padding extends TokenObject{
     char indication;
     String content;
 

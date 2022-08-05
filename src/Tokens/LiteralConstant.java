@@ -5,9 +5,10 @@ they start with `#` or are preceded by `LIT` or `LIT2`
  */
 package Tokens;
 
-public class LiteralConstant {
+public class LiteralConstant extends TokenObject {
     String indication;
     String Content;
+    String type = "LiteralConstant";
 
     public LiteralConstant() {
     }
@@ -23,9 +24,10 @@ public class LiteralConstant {
         } else throw new Exception("Error: Not a literal indication.");
     }
 
-    public String contentConvert(String Content) {
-        if (!Content.equals("")) {
-            return Integer.valueOf(Content, 16) + "";
+    //    要不要在这里就转成十进制？
+    public String contentConvert(String content) {
+        if (!content.equals("")) {
+            return Integer.parseInt(content, 16) + "";  //Convert to decimal
         } else
             return null;
     }

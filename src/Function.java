@@ -7,16 +7,16 @@ public class Function {
     String end;
     List<String> content;
 
-    public Function(){
+    public Function() {
     }
 
-    public Function(String name, String end, List<String> content){
+    public Function(String name, String end, List<String> content) {
         this.name = name;
         this.end = end;
         this.content = new ArrayList<>(content);
     }
 
-    public boolean isFunction(char start, String end){
+    public boolean isFunction(char start, String end) {
         return (this.start == start && (end.equals("JMP") || end.equals("JMP2") || end.equals("JMP2r")));
     }
 
