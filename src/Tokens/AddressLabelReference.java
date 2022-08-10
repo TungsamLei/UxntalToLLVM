@@ -7,13 +7,17 @@ A special case is the zero-page memory which has absolute addresses that you can
  */
 package Tokens;
 
-public class AddressLabelReference extends TokenObject{
+public class AddressLabelReference extends TokenObject {
     char indication;
     String content;
 
     public AddressLabelReference(char indication, String content) {
         this.indication = indication;
         this.content = content;
+    }
+
+    public AddressLabelReference() {
+
     }
 
     public boolean isAddressLabelReference(char indication, String content) {
@@ -39,5 +43,12 @@ public class AddressLabelReference extends TokenObject{
     @Override
     public String toString() {
         return getIndication() + getContent();
+    }
+
+    @Override
+    public void setType(String type) {
+        if (isAddressLabelReference(indication, content)) {
+            this.type = "AddressLabelReference";
+        }
     }
 }

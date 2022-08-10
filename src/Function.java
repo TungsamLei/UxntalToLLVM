@@ -1,3 +1,5 @@
+import Tokens.TokenObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,6 +8,7 @@ public class Function {
     final char start = '@';
     String end;
     List<String> content;
+    List<TokenObject> tokenObject;
 
     public Function() {
     }
@@ -18,6 +21,14 @@ public class Function {
 
     public boolean isFunction(char start, String end) {
         return (this.start == start && (end.equals("JMP") || end.equals("JMP2") || end.equals("JMP2r")));
+    }
+
+    public List<TokenObject> getTokenObject() {
+        return tokenObject;
+    }
+
+    public void setTokenObject(List<TokenObject> tokenObjects) {
+        this.tokenObject = tokenObjects;
     }
 
     public String getName() {

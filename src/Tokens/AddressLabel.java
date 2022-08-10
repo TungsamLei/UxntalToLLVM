@@ -6,10 +6,16 @@ Address labels: they start with `@` or `&` and are arbitrary strings, for exampl
 
 package Tokens;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AddressLabel extends TokenObject{
-    char indication;
-    String content;
-    byte byteCount;
+    char indication; //the `@` or `&`
+    String content; // the `mult-acc` or `loop` of the `@mult-acc` or `&loop`
+    byte byteCount; //`@` takes 2 bytes. `&`is only 1 byte.
+    List<AddressLabel> subLabel; // '&'
+    List<TokenObject> contentToken; //separate the following content into tokens
+
 
     public AddressLabel() {
     }
@@ -17,7 +23,7 @@ public class AddressLabel extends TokenObject{
     public AddressLabel(char indication, String content) {
         this.indication = indication;
         this.content = content;
-        if (isAboslute(this.indication)) {
+        if (isAbsolute(this.indication)) {
             byteCount = 2;
         } else {
             byteCount = 1;
@@ -26,10 +32,10 @@ public class AddressLabel extends TokenObject{
 
 
     public boolean isAddressLabel(char indication) {
-        return isAboslute(indication) || isRelative(indication);
+        return isAbsolute(indication) || isRelative(indication);
     }
 
-    public boolean isAboslute(char indication) {
+    public boolean isAbsolute(char indication) {
         return indication == '@';
     }
 
@@ -45,10 +51,12 @@ public class AddressLabel extends TokenObject{
         this.indication = indication;
     }
 
+    @Override
     public String getContent() {
         return content;
     }
 
+    @Override
     public void setContent(String content) {
         this.content = content;
     }
@@ -61,8 +69,32 @@ public class AddressLabel extends TokenObject{
         this.byteCount = byteCount;
     }
 
+    public List<AddressLabel> getSubLabel() {
+        return subLabel;
+    }
+
+    public void setSubLabel(List<AddressLabel> subLabel) {
+        this.subLabel = subLabel;
+    }
+
+    public List<TokenObject> getContentToken() {
+        return contentToken;
+    }
+
+    public void setContentToken(List<TokenObject> contentToken) {
+        this.contentToken = contentToken;
+    }
+
     @Override
     public String toString() {
         return getIndication() + getContent();
+    }
+
+
+    @Override
+    public void setType(String type) {
+        if (isAddressLabel(indication)){
+            this.type = "AddressLabel";
+        }
     }
 }

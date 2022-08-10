@@ -13,6 +13,9 @@ public class RawConstant extends TokenObject{
         this.content = contentConvert(content);
     }
 
+    public RawConstant() {
+    }
+
 
     /**
      * Any special character?
@@ -45,5 +48,12 @@ public class RawConstant extends TokenObject{
     @Override
     public String toString() {
         return getContent();
+    }
+
+    @Override
+    public void setType(String type) {
+        if (isRawContent(content)) {
+            this.type = "RawContent";
+        }
     }
 }

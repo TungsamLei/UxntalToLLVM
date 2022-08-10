@@ -8,7 +8,7 @@ public class TokenObject {
     public String getContent() {
         if (content == null || "".equals(content)) {
             return "null";
-        }else return content;
+        } else return content;
     }
 
     public void setContent(String content) {
@@ -29,5 +29,9 @@ public class TokenObject {
 
     public void setByteCount(byte byteCount) {
         this.byteCount = byteCount;
+    }
+
+    public String toString() {
+        return getContent();
     }
 }

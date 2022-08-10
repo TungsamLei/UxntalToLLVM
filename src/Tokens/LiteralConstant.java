@@ -7,7 +7,7 @@ package Tokens;
 
 public class LiteralConstant extends TokenObject {
     String indication;
-    String Content;
+    String content;
     String type = "LiteralConstant";
 
     public LiteralConstant() {
@@ -15,7 +15,7 @@ public class LiteralConstant extends TokenObject {
 
     public LiteralConstant(String indication, String content) throws Exception {
         this.indication = indicationConvert(indication);
-        this.Content = contentConvert(content);
+        this.content = contentConvert(content);
     }
 
     public String indicationConvert(String indication) throws Exception {
@@ -45,15 +45,22 @@ public class LiteralConstant extends TokenObject {
     }
 
     public String getContent() {
-        return Content;
+        return content;
     }
 
     public void setContent(String content) {
-        Content = content;
+        content = content;
     }
 
     @Override
     public String toString() {
         return getIndication() + getContent();
+    }
+
+    @Override
+    public void setType(String type) {
+        if (isLiteral(indication)) {
+            this.type = "AddressLabelReference";
+        }
     }
 }

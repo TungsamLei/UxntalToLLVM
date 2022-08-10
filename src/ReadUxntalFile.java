@@ -20,6 +20,14 @@ public class ReadUxntalFile {
 
     //    Read from a .tal file and store it
     public List<String> readUnxtal() {
+        File file = new File(".\\Uxntal\\");
+        File[] files = file.listFiles();
+        System.out.println("Here are the names of all the Uxntal files.");
+        for (File file2 : files) {
+            //打印文件列表：只读取名称使用getName();
+//            System.out.println("Path："+file2.getPath());
+            System.out.println("File name："+file2.getName());
+        }
         System.out.println("Please enter the name of the Uxntal file that you want to compile:");
         Scanner sc = new Scanner(System.in);
         String fileName = "./Uxntal/" + sc.next() + ".tal";

@@ -10,21 +10,21 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Main main = new Main();
         Map<String, List<String>> tal = readUxntalFile.splitBlock(readUxntalFile.readUnxtal());
-        System.out.println("Here is the result :");
+        System.out.println("Here is the result:");
         if (tal != null) {
             for (String s : tal.keySet()) {
                 System.out.println(s + "   " + tal.get(s));
             }
         }
-        System.out.println();
+        System.out.println("--------------------------------------------------------------------");
         TokensMap tokensMap = new TokensMap();
-        List<TokenObject> tokenList = tokensMap.tokenObjectMapping(tal.get("main-program"));
+        List<TokenObject> tokenList = tokensMap.tokensMap(tal.get("Main Program"));
 
-        tokensMap.FunctionConvert(tokenList);
-        System.out.println("Here is your Addresslable object");
-        for (AddressLabel a : tokensMap.lableList) {
-            if (a.isAboslute(a.getIndication())) {
-                System.out.println(a.getIndication() + "" + a.getName());
+        tokensMap.functionConvert(tokenList);
+        System.out.println("AddressLabel object:");
+        for (AddressLabel a : tokensMap.addressLabelList) {
+            if (a.isAbsolute(a.getIndication())) {
+                System.out.println(a.getIndication() + "" + a.getContent());
 //                System.out.println("here are "+a.getString()+"'s content:");
 //                for(TokenObject token : a.getContentToken()){
 //                    System.out.print(token.getString()+"   ");
@@ -32,13 +32,13 @@ public class Main {
             }
         }
         System.out.println();
-        System.out.println("TokenList :");
+        System.out.println("TokenList:");
         for (TokenObject token : tokenList) {
-//            if(!token.getType().equals("unknow"))
-            System.out.print(token.getString() + "  ");
+//            if(!token.getType().equals("unknown"))
+            System.out.print(token.toString() + "  ");
         }
         System.out.println();
-        System.out.println("Here are functions");
+        System.out.println("Functions:");
         for (Function func : tokensMap.functionList) {
             System.out.println("@" + func.getName());
         }

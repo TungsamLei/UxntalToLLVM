@@ -48,4 +48,11 @@ public class Padding extends TokenObject{
     public String toString(){
         return getIndication() + getContent();
     }
+
+    @Override
+    public void setType(String type) {
+        if (isPadding(indication)) {
+            this.type = "Padding";
+        }
+    }
 }
