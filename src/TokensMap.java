@@ -34,42 +34,42 @@ public class TokensMap {
             }
             tokenObjectList.add(tokenObject);
 
-            if (tokenObject instanceof AddressLabel) {
-                addressLabelList.add((AddressLabel) tokenObject);
-
-                if (((AddressLabel) tokenObject).isAbsolute(((AddressLabel) tokenObject).getIndication())) {
-                    List<TokenObject> contentTokenList = new ArrayList<>();
-                    List<AddressLabel> subLabelList = new ArrayList<>();
-                    i++;
-                    while (i < stringList.size()) {
-                        String currentString = stringList.get(i);
-                        // these contents mean the end of a label or a function
-                        if (currentString.equals("BRK") || currentString.charAt(0) == '@' || currentString.charAt(0) == '|') {
-                            i--;
-                            break;
-                        }
-                        TokenObject content = singleMap(stringList.get(i));
-                        if (content.getType() == null) content.setType("" + content.getClass());
-                        contentTokenList.add(content);
-
-                        // subLabel
-                        // tokenObjectList.add(content);
-
-                        // if it is subLabel
-                        if (content instanceof AddressLabel && ((AddressLabel) content).isRelative(((AddressLabel) content).getIndication())) {
-                            subLabelList.add((AddressLabel) content);
-                            addressLabelList.add((AddressLabel) content);
-                        }
-                        if (currentString.equals("JMP2r") || currentString.equals("JMP2")) {
-                            break;
-                        }
-                        i++;
-                    }
-                    // add subLabel and contentToken to addressLabel
-                    ((AddressLabel) tokenObject).setSubLabel(subLabelList);
-                    ((AddressLabel) tokenObject).setContentToken(contentTokenList);
-                }
-            }
+//            if (tokenObject instanceof AddressLabel) {
+//                addressLabelList.add((AddressLabel) tokenObject);
+//
+//                if (((AddressLabel) tokenObject).isAbsolute(((AddressLabel) tokenObject).getIndication())) {
+//                    List<TokenObject> contentTokenList = new ArrayList<>();
+//                    List<AddressLabel> subLabelList = new ArrayList<>();
+//                    i++;
+//                    while (i < stringList.size()) {
+//                        String currentString = stringList.get(i);
+//                        // these contents mean the end of a label or a function
+//                        if (currentString.equals("BRK") || currentString.charAt(0) == '@' || currentString.charAt(0) == '|') {
+//                            i--;
+//                            break;
+//                        }
+//                        TokenObject content = singleMap(stringList.get(i));
+//                        if (content.getType() == null) content.setType("" + content.getClass());
+//                        contentTokenList.add(content);
+//
+//                        // subLabel
+//                        // tokenObjectList.add(content);
+//
+//                        // if it is subLabel
+//                        if (content instanceof AddressLabel && ((AddressLabel) content).isRelative(((AddressLabel) content).getIndication())) {
+//                            subLabelList.add((AddressLabel) content);
+//                            addressLabelList.add((AddressLabel) content);
+//                        }
+//                        if (currentString.equals("JMP2r") || currentString.equals("JMP2")) {
+//                            break;
+//                        }
+//                        i++;
+//                    }
+//                    // add subLabel and contentToken to addressLabel
+//                    ((AddressLabel) tokenObject).setSubLabel(subLabelList);
+//                    ((AddressLabel) tokenObject).setContentToken(contentTokenList);
+//                }
+//            }
             // as for other labels, we directly add them
             i++;
         }
@@ -132,6 +132,7 @@ public class TokensMap {
         }
         if (rawConstant.isRawContent(str)) {
             rawConstant.setContent(str);
+            rawConstant.setType("RawContent");
             return rawConstant;
         }
         TokenObject tokenObject = new TokenObject();

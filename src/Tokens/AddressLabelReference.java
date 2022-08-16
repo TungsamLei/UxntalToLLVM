@@ -21,7 +21,7 @@ public class AddressLabelReference extends TokenObject {
     }
 
     public boolean isAddressLabelReference(char indication, String content) {
-        return indication == ';' || indication == '.' || (indication == ',' && content.charAt(1) == '&');
+        return indication == ';' || indication == '.' || (indication == ',' && content.charAt(0) == '&');
     }
 
     public char getIndication() {

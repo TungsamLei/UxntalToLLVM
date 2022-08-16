@@ -67,18 +67,23 @@ public class Main {
 //        }
 
         System.out.println("--------------------------------------------------------------------");
-        System.out.println("Convert Function tokens into token objects.");
-//        todo:循环functionTokenList生成
-        if (tal.get("Function ") != null && tal.get("Zero Page").size() != 0) {
-            List<TokenObject> functionTokenList = tokensMap.tokensMap(tal.get("Function"));
+        System.out.println("Convert function into token objects.");
+
+        if (tal.size() > 3) {
+            for (int i = 1; i <= tal.size() - 3; i++) {
+                String str ="Function " + i;
+                if (tal.get(str) != null && tal.get(str).size() != 0) {
+                    List<TokenObject> functionTokenList = tokensMap.tokensMap(tal.get(str));
 
 //        test
-            for (TokenObject tokenObject : functionTokenList) {
-                System.out.println(tokenObject.getType() + " " + tokenObject.toString());
-            }
+                    for (TokenObject tokenObject : functionTokenList) {
+                        System.out.println(tokenObject.getType() + " " + tokenObject.toString());
+                    }
 
-            System.out.println("Convert Function into LLVM.");
+                    System.out.println("Convert Function " + i +" into LLVM.");
 //            zeroPageConvert.convert(zeroPageTokenList);
+                }
+            }
         } else {
             System.out.println("Function is null.");
         }

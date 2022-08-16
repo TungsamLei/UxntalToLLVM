@@ -50,10 +50,10 @@ public class RawConstant extends TokenObject{
         return getContent();
     }
 
-    @Override
-    public void setType(String type) {
-        if (isRawContent(content)) {
-            this.type = "RawContent";
-        }
-    }
+//    @Override
+//    public void setType(String type) {
+//        if (isRawContent(content)) {
+//            this.type = "RawContent";
+//        }
+//    }
 }

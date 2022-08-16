@@ -4,10 +4,7 @@
     <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="debug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tokens/AddressLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tokens/AddressLabel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tokens/AddressLabelReference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tokens/AddressLabelReference.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tokens/LiteralConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tokens/LiteralConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tokens/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tokens/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tokens/RawConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tokens/RawConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TokensMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TokensMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +91,7 @@
       <workItem from="1660402683340" duration="1646000" />
       <workItem from="1660452899195" duration="24851000" />
       <workItem from="1660639299471" duration="2301000" />
-      <workItem from="1660655155205" duration="12103000" />
+      <workItem from="1660655155205" duration="14011000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1658288260773</created>
@@ -131,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660663704413</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="debug">
+      <created>1660671620106</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1660671620106</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
