@@ -1,3 +1,6 @@
+import LLVMGenerator.FunctionConvert;
+import LLVMGenerator.LabelConvert;
+import LLVMGenerator.MainProgramConvert;
 import LLVMGenerator.ZeroPageConvert;
 import Tokens.AddressLabel;
 import Tokens.Padding;
@@ -9,11 +12,15 @@ import java.util.Stack;
 
 public class Main {
     static ReadUxntalFile readUxntalFile = new ReadUxntalFile();
-    Stack stack = new Stack();
+
 
     public static void main(String[] args) throws Exception {
         Main main = new Main();
+        Stack stack = new Stack();
         ZeroPageConvert zeroPageConvert = new ZeroPageConvert();
+        MainProgramConvert mainProgramConvert = new MainProgramConvert();
+        FunctionConvert functionConvert = new FunctionConvert();
+        LabelConvert labelConvert = new LabelConvert();
         Map<String, List<String>> tal = readUxntalFile.splitBlock(readUxntalFile.readUnxtal());
         System.out.println("Here is the result:");
         if (tal != null) {
@@ -34,7 +41,8 @@ public class Main {
             }
 
             System.out.println("Convert Zero Page into LLVM.");
-//            zeroPageConvert.convert(zeroPageTokenList);
+            String zeroPageLLVM = zeroPageConvert.convert(zeroPageTokenList);
+            System.out.println(zeroPageLLVM);
         } else {
             System.out.println("Zero Page is null.");
         }
@@ -48,6 +56,9 @@ public class Main {
             System.out.println(tokenObject.getType() + " " + tokenObject.toString());
         }
 
+        System.out.println("Convert Main Program into LLVM.");
+        String mainProgramLLVM = mainProgramConvert.convert(mainProgramTokenList, stack);
+        System.out.println(mainProgramLLVM);
 //        tokensMap.functionConvert(mainProgramTokenList);
 //        System.out.println("AddressLabel object:");
 //        for (AddressLabel a : tokensMap.addressLabelList) {
@@ -71,7 +82,7 @@ public class Main {
 
         if (tal.size() > 3) {
             for (int i = 1; i <= tal.size() - 3; i++) {
-                String str ="Function " + i;
+                String str = "Function " + i;
                 if (tal.get(str) != null && tal.get(str).size() != 0) {
                     List<TokenObject> functionTokenList = tokensMap.tokensMap(tal.get(str));
 
@@ -80,8 +91,8 @@ public class Main {
                         System.out.println(tokenObject.getType() + " " + tokenObject.toString());
                     }
 
-                    System.out.println("Convert Function " + i +" into LLVM.");
-//            zeroPageConvert.convert(zeroPageTokenList);
+                    System.out.println("Convert Function " + i + " into LLVM.");
+
                 }
             }
         } else {
@@ -99,12 +110,11 @@ public class Main {
             }
 
             System.out.println("Convert Label into LLVM.");
-//            zeroPageConvert.convert(zeroPageTokenList);
+
         } else {
             System.out.println("Label is null.");
         }
         System.out.println("--------------------------------------------------------------------");
-
         System.exit(0);
     }
 }
