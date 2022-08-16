@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="debug">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LLVMGenerator/ZeroPageConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LLVMGenerator/ZeroPageConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="zeropageconvert &amp; part of mainprogramconvert" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +86,7 @@
       <workItem from="1660402683340" duration="1646000" />
       <workItem from="1660452899195" duration="24851000" />
       <workItem from="1660639299471" duration="2301000" />
-      <workItem from="1660655155205" duration="18510000" />
+      <workItem from="1660655155205" duration="18908000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1658288260773</created>
@@ -142,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660673613177</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="zeropageconvert &amp; part of mainprogramconvert">
+      <created>1660678134181</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1660678134181</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +166,8 @@
     <MESSAGE value="Token Class basic &amp; Uxntal files" />
     <MESSAGE value="token map" />
     <MESSAGE value="debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug" />
+    <MESSAGE value="zeropageconvert &amp; part of mainprogramconvert" />
+    <option name="LAST_COMMIT_MESSAGE" value="zeropageconvert &amp; part of mainprogramconvert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
