@@ -2,44 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="debug">
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex00_basics.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex01_0_simple_calc.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex01_1_simple_calc.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex01_2_simple_calc.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex01_3_simple_calc.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex02_simple_calc_8bit.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex03_simple_calc_registers.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex04_simple_calc_registers_8bit.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex05_simple_calc_registers2.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex06_subroutine-call.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex07_subroutine-call_8bit.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex08_memory.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex09_memory_8bit.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex10_hello-world.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex11_phi.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex12_functions.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex13_functions.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex14_functions.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex15_functions.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex15_functions_registerised.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex16_functions.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex17_function_mult_ret.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex17_function_mult_ret_registered.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uxntal/ex18_stack_mixed_sizes.tal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LLVMGenerator/FinalLLVM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LLVMGenerator/FunctionConvert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LLVMGenerator/LabelConvert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LLVMGenerator/ZeroPageConvert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/OperationType/TransferMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uxntal/learnuxn.tal" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OperationType/LLVMOperationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperationType/LLVMOperationType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReadUxntalFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadUxntalFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tokens/AddressLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tokens/AddressLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tokens/AddressLabelReference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tokens/AddressLabelReference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tokens/LiteralConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tokens/LiteralConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tokens/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tokens/Operation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tokens/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tokens/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tokens/RegisteredOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tokens/RegisteredOperation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TokensMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TokensMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +94,7 @@
       <workItem from="1660402683340" duration="1646000" />
       <workItem from="1660452899195" duration="24851000" />
       <workItem from="1660639299471" duration="2301000" />
-      <workItem from="1660655155205" duration="4391000" />
+      <workItem from="1660655155205" duration="12103000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1658288260773</created>
@@ -156,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660155771430</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="debug">
+      <created>1660663704413</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1660663704413</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

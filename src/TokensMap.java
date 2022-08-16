@@ -91,7 +91,7 @@ public class TokensMap {
         AddressLabel addressLabel = new AddressLabel();
         AddressLabelReference addressLabelReference = new AddressLabelReference();
         LiteralConstant literal = new LiteralConstant();
-        Operation Operation = new Operation();
+        Operation operation = new Operation();
         Padding padding = new Padding();
         RawConstant rawConstant = new RawConstant();
         Register register = new Register();
@@ -103,16 +103,19 @@ public class TokensMap {
         if (padding.isPadding(indication)) {
             padding.setIndication(indication);
             padding.setContent(followContent);
+            padding.setType("Padding");
             return padding;
         }
         if (addressLabel.isAddressLabel(indication)) {
             addressLabel.setIndication(indication);
             addressLabel.setContent(followContent);
+            addressLabel.setType("AddressLabel");
             return addressLabel;
         }
         if (addressLabelReference.isAddressLabelReference(indication, followContent)) {
             addressLabelReference.setIndication(indication);
             addressLabelReference.setContent(followContent);
+            addressLabelReference.setType("AddressLabelReference");
             return addressLabelReference;
         }
         if (literal.isLiteral(indication + "")) {
@@ -121,9 +124,11 @@ public class TokensMap {
             return new LiteralConstant(str.substring(0, 3), str.substring(3));
         }
 
-        if (str.length() >= 3 && Operation.isOperationType(str)) {
-            Operation.operationConvert(str);
-            return Operation;
+        if (str.length() >= 3 && operation.isOperationType(str)) {
+            return new Operation(str);
+//            operation.operationConvert(str);
+//            operation.setType("Operation");
+//            return operation;
         }
         if (rawConstant.isRawContent(str)) {
             rawConstant.setContent(str);

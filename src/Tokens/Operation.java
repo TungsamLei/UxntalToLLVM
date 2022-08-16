@@ -14,7 +14,7 @@ public class Operation extends TokenObject {
     }
 
     public Operation(String content) {
-        this.content = content;
+        operationConvert(content);
     }
 
     public Operation(String operation, String pattern) {
@@ -23,44 +23,53 @@ public class Operation extends TokenObject {
     }
 
     public void operationConvert(String content) {
-        String temp = null;
-        String substr = null;
+        String temp = "";
+        String substr = "";
+        this.content = content;
 
         for (char c : content.toCharArray()) {
             if (Character.isUpperCase(c)) {
                 temp = temp + c;
+            } else {
+                substr = substr + c;
             }
-            substr = substr + c;
         }
         if (temp.length() == 3) {
-            if (isOperation(temp)) {
-                this.operation = temp;
-            }
-            if (substr.length() != 0 && isPattern(substr)) {
+            this.operation = temp;
+            if (substr.length() != 0) {
                 this.pattern = substr;
             }
-        } else System.out.println("Operation.class operationConvert Error: Not an valid operation.");
+            this.setType("Operation");
+        }
     }
 
     public boolean isOperationType(String content) {
-        String temp = null;
-        String substr = null;
+        String temp = ""; //大写字母
+        String substr = ""; //大写字母以外的部分
 
         for (char c : content.toCharArray()) {
             if (Character.isUpperCase(c)) {
                 temp = temp + c;
+            } else {
+                substr = substr + c;
             }
-            substr = substr + c;
         }
+
+//        test
+//        System.out.println("Operation.class isOperationType() temp " + temp);
+//        System.out.println("Operation.class isOperationType() substr " + substr);
+
         if (temp.length() == 3) {
-            if (isOperation(temp)) {
-                this.operation = temp;
-            }
-            if (substr.length() != 0 && isPattern(substr)) {
+//            if (isOperation(temp)) {
+            this.operation = temp;
+//            }
+//            if (substr.length() != 0 && isPattern(substr)) {
+            if (substr.length() != 0) {
                 this.pattern = substr;
-                return true;
             }
-        } else System.out.println("Operation.class isOperationType Error: Not an valid operation.");
+            return true;
+        }
+        System.out.println("Operation.class isOperationType Error: Not an valid operation.");
         return false;
     }
 
@@ -113,14 +122,14 @@ public class Operation extends TokenObject {
 
     @Override
     public String toString() {
-        return getContent() + getPattern();
+        return getContent();
     }
 
-    @Override
-    public void setType(String type) {
-        if (isOperationType(content)) {
-            this.type = "Operation";
-        }
-    }
+//    @Override
+//    public void setType(String type) {
+//        if (isOperationType(content)) {
+//            this.type = "Operation";
+//        }
+//    }
 }
 

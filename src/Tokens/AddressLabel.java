@@ -91,10 +91,10 @@ public class AddressLabel extends TokenObject{
     }
 
 
-    @Override
-    public void setType(String type) {
-        if (isAddressLabel(indication)){
-            this.type = "AddressLabel";
-        }
-    }
+//    @Override
+//    public void setType(String type) {
+//        if (isAddressLabel(indication)){
+//            this.type = "AddressLabel";
+//        }
+//    }
 }
