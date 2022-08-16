@@ -39,7 +39,7 @@ public class Operation extends TokenObject {
             if (substr.length() != 0 && isPattern(substr)) {
                 this.pattern = substr;
             }
-        } else System.out.println("Error: Not an valid operation.");
+        } else System.out.println("Operation.class operationConvert Error: Not an valid operation.");
     }
 
     public boolean isOperationType(String content) {
@@ -60,7 +60,7 @@ public class Operation extends TokenObject {
                 this.pattern = substr;
                 return true;
             }
-        } else System.out.println("Error: Not an valid operation.");
+        } else System.out.println("Operation.class isOperationType Error: Not an valid operation.");
         return false;
     }
 

@@ -1,0 +1,15 @@
+( This is a test case for multiple return values )
+
+|0100 @main
+
+#0004 ;f_1 JSR2 ( returns 4,5,6 )
+ADD2 ADD2 ( should be 15 i.e. f )
+NIP
+#37 ADD #18 DEO 
+BRK
+
+@f_1 
+    INC2k ( 4 5 ) 
+    INC2k ( 4 5 6 )
+    JMP2r
+

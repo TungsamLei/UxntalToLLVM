@@ -8,10 +8,20 @@ public class TokensMap {
 //    public LinkedHashMap<>;
 
 
-    //
+    /*
+      几个list： stringList, addressLabelList, functionList, tokenObjectList，contentTokenList， subLabelList
+      传参stringList
+      stringList(i)调用singleMap判断token类型，把判断类型后的tokenObject存到tokenObjectList
+      如果tokenObject是addressLabel，存到addressLabelList
+          如果tokenObject是绝对地址，i++
+          stringList(i)即currentString调用singleMap判断token类型，把判断类型后的content加到contentTokenList
+          如果content是相对地址，把content存到subLabelList和addressLabelList
+          如果currentString是一个function或者addressLabel的结尾，break
+      更新tokenObject这个addressLabel类的contentTokenList 和 subLabelList
+     */
     public List<TokenObject> tokensMap(List<String> stringList) throws Exception {
         if (stringList == null || stringList.size() == 0) {
-            throw new Exception("Error: No stringList was input.");
+            throw new Exception("TokensMap.Class tokensMap method Error: No stringList was input.");
         }
         addressLabelList = new ArrayList<>();
         List<TokenObject> tokenObjectList = new ArrayList<>();
@@ -24,11 +34,9 @@ public class TokensMap {
             }
             tokenObjectList.add(tokenObject);
 
-            // only do content fill when it's an address label
-//            Todo: register & registerOperation update
             if (tokenObject instanceof AddressLabel) {
                 addressLabelList.add((AddressLabel) tokenObject);
-                // Token class is generated while adding content and child labels to the parent Label
+
                 if (((AddressLabel) tokenObject).isAbsolute(((AddressLabel) tokenObject).getIndication())) {
                     List<TokenObject> contentTokenList = new ArrayList<>();
                     List<AddressLabel> subLabelList = new ArrayList<>();
@@ -40,21 +48,19 @@ public class TokensMap {
                             i--;
                             break;
                         }
-                        // add this object to tokenObjectList, and it's also the content of our abs AddressLabel:tokenObject
                         TokenObject content = singleMap(stringList.get(i));
                         if (content.getType() == null) content.setType("" + content.getClass());
+                        contentTokenList.add(content);
 
                         // subLabel
                         // tokenObjectList.add(content);
-
-                        contentTokenList.add(content);
 
                         // if it is subLabel
                         if (content instanceof AddressLabel && ((AddressLabel) content).isRelative(((AddressLabel) content).getIndication())) {
                             subLabelList.add((AddressLabel) content);
                             addressLabelList.add((AddressLabel) content);
                         }
-                        if (currentString.equals("JMP") || currentString.equals("JMP2r") || currentString.equals("JMP2") || currentString.equals("]")) {
+                        if (currentString.equals("JMP2r") || currentString.equals("JMP2")) {
                             break;
                         }
                         i++;

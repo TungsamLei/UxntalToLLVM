@@ -26,7 +26,7 @@ public class ReadUxntalFile {
         for (File file2 : files) {
             //打印文件列表：只读取名称使用getName();
 //            System.out.println("Path："+file2.getPath());
-            System.out.println("File name："+file2.getName());
+            System.out.println("File name：" + file2.getName());
         }
         System.out.println("Please enter the name of the Uxntal file that you want to compile:");
         Scanner sc = new Scanner(System.in);
@@ -49,6 +49,7 @@ public class ReadUxntalFile {
         string = string.replaceAll("\\r", " ");
         // Clear blank
         String[] arr = string.split("\s+");
+
 
         for (String str : arr) {
             String trimed = str.trim();
@@ -110,9 +111,10 @@ public class ReadUxntalFile {
 
         Map<String, List<String>> map = new LinkedHashMap<>();
 
+        int i = 0;
+
 //        zero page
         List<String> zeroPage = new ArrayList<>();
-        int i = 0;
         while (i < list.size()) {
             String str = list.get(i);
             if (str.contains("|0100")) {
@@ -137,9 +139,77 @@ public class ReadUxntalFile {
         map.put("Main Program", mainProgram);
 
 
-        // global variable
-        List<String> label = new ArrayList<>();
+//        i++;
+//        while (i < list.size()) {
+////            function
+//            int functionCount = 0;
+//            if (list.get(i).contains("@")) {
+//                List<String> function = new ArrayList<>();
+//                functionCount++;
+//                while (i < list.size()) {
+//                    String str = list.get(i);
+//                    if (str.contains("JMP2") || str.contains("JMP2r")) {
+//                        function.add(str);
+//                        break;
+//                    }
+//                    i++;
+//                    function.add(str);
+//                }
+//                map.put("function" + functionCount, function);
+//                i++;
+//                continue;
+//            }
+////            label
+//            if (list.get(i).contains("&")) {
+//                List<String> label = new ArrayList<>();
+//                while (i < list.size()) {
+//                    String str = list.get(i);
+//                    label.add(str);
+//                    i++;
+//                    break;
+//                }
+//                map.put("Label", label);
+//            }
+//            i++;
+//        }
+
         i++;
+        int count = 0;
+        while (i < list.size() && list.get(i).contains("@")) {
+            count++;
+            List<String> function = new ArrayList<>();
+            while (i < list.size()) {
+                String str = list.get(i);
+                if (str.contains("JMP2") || str.contains("JMP2r")) {
+                    function.add(str);
+                    break;
+                }
+                i++;
+                function.add(str);
+            }
+            map.put("Function " + count, function);
+            i++;
+        }
+
+//        //
+//        i++;
+//        if (i < list.size() && list.get(i).contains("@")) {
+//            List<String> function = new ArrayList<>();
+//            while (i < list.size()) {
+//                String str = list.get(i);
+//                if (str.contains("&")) {
+//                    function.add(str);
+//                    break;
+//                }
+//                i++;
+//                function.add(str);
+//            }
+//            map.put("Function ", function);
+//        }
+
+        // global variable
+        i++;
+        List<String> label = new ArrayList<>();
         while (i < list.size()) {
             String str = list.get(i);
             label.add(str);
@@ -150,5 +220,5 @@ public class ReadUxntalFile {
         System.out.println();
         return map;
     }
-
 }
+

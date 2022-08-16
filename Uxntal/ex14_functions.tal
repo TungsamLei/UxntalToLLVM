@@ -1,0 +1,14 @@
+( This is an test case for a function with a 'keep' instruction )
+|0100 @main
+
+#0005 #0301 ;add JSR2 ( so returns args and sum )
+#30 ADD #18 DEO 
+BRK
+
+|0300
+@add 
+    ADD2 ( needs 2 args ) 
+    INC2k ( needs 1 arg and leaves 2 elts on the stack )
+    ADD2 
+    ( needs 2 args and returns 1 elt on the stack )
+    JMP2r
