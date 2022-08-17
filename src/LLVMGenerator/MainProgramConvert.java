@@ -12,11 +12,14 @@ public class MainProgramConvert {
 
         StringBuilder sb = new StringBuilder();
         String changeLine = "\r\n";
+        String tab = "\t";
         sb.append("define i16 @main() {");  // |0100  本程序默认i16
         if (list.get(2).toString() == "@main") {
             list.remove(2);
         } //remove @main
         sb.append(changeLine);
+        sb.append(tab);
+
 
         /**
          *  main program只有以下几种 token 类型：
@@ -33,7 +36,7 @@ public class MainProgramConvert {
          *
          */
 
-        for (int i = 2; i < list.size() - 4; i++) {
+        for (int i = 2; i <= list.size() - 4; i++) {
 
 //            LiteralConstant
             if (list.get(i).getType().equals("LiteralConstant")) {
@@ -61,26 +64,30 @@ public class MainProgramConvert {
                 String content = list.get(i).toString().substring(1);
                 if (indication == '.') {
                     i++;
-                    String top = (String) stack.pop();
-                    String temp;
-                    if (top.contains("%")) {
-                        temp = top;
-                    } else {
-                        temp = "u0×" + top;
-                    }
                     String operation = list.get(i).toString().substring(0, 3);
-                    String pattern = content.substring(3);
+                    String pattern = list.get(i).toString().substring(3);
                     if (operation.equals("STZ")) {
+                        String top = (String) stack.pop();
+                        String temp;
+                        if (top.contains("%")) {
+                            temp = top;
+                        } else {
+                            temp = "u0×" + top;
+                        }
                         if (pattern.contains("2")) {
                             //        store i16 u0x0006, i16* @x
-                            sb.append("store i16 " + temp + "i16* @" + content); //调 zero page的全局变量
+                            sb.append("store i16 " + temp + ", i16* @" + content); //调 zero page的全局变量
                             sb.append(changeLine);
+                            sb.append(tab);
+                            System.out.println("82 line: "+sb);
                         } else {
                             String str2 = top.substring(0, 2);
                             String str1 = top.substring(2);
                             sb.append("store i16 u0×00" + str1 + "i16* @" + content); //调 zero page的全局变量
                             sb.append(changeLine);
+                            sb.append(tab);
                             stack.push("00" + str2);
+                            System.out.println("90 : "+sb);
                         }
                         if (pattern.contains("k")) {
                             stack.push(top);
@@ -91,6 +98,10 @@ public class MainProgramConvert {
                         //        %r1 = load i16, i16* @x
                         sb.append("%r" + localVariable + " = load i16, i16* @" + content); //调 zero page的全局变量
                         sb.append(changeLine);
+                        sb.append(tab);
+                        System.out.println("102 : "+sb);
+
+
 //                        } else {
 //                            String str2 = top.substring(0, 2);
 //                            String str1 = top.substring(2);
@@ -98,9 +109,9 @@ public class MainProgramConvert {
 //                            sb.append(changeLine);
 //                            stack.push("00" + str2);
 //                        }
-                        if (pattern.contains("k")) {
-                            stack.push(top);
-                        }
+//                        if (pattern.contains("k")) {
+//                            stack.push(top);
+//                        }
                         stack.push("%r" + localVariable);
                     }
                     continue;
@@ -111,10 +122,12 @@ public class MainProgramConvert {
                     if (top.contains("%")) {
                         sb.append("call i16 @" + content + "(i16 " + top + ")");  //调function,传参：stack现在最顶上的两个byte
                         sb.append(changeLine);
+                        sb.append(tab);
                         continue;
                     } else {
                         sb.append("call i16 @" + content + "(i16 u0×" + top + ")");  //调function,传参：stack现在最顶上的两个byte
                         sb.append(changeLine);
+                        sb.append(tab);
                         continue;
                     }
                 } else { // ',&'
@@ -142,16 +155,18 @@ public class MainProgramConvert {
                             temp1 = "u0×" + top;
                         }
                         if (!top2.contains("%")) {
-                            temp2 = "u0×" + top;
+                            temp2 = "u0×" + top2;
                         }
                         //  %r1 = mul i16 u0x0007, u0x0006
                         sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + temp1 + "," + temp2);
                         sb.append(changeLine);
+                        sb.append(tab);
                     } else {
                         String str2 = top.substring(0, 2);
                         String str1 = top.substring(2);
                         sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + "u0×" + str1 + "," + "u0×" + str2);
                         sb.append(changeLine);
+                        sb.append(tab);
                     }
                     if (pattern.contains("k")) {
                         stack.push(top2);
@@ -176,6 +191,7 @@ public class MainProgramConvert {
                     localVariable++;
                     sb.append("%r" + localVariable + " = add i16 1," + temp);
                     sb.append(changeLine);
+                    sb.append(tab);
                     if (pattern.contains("k")) {
                         stack.push(top);
                     }
@@ -196,9 +212,8 @@ public class MainProgramConvert {
             }
         }
 
-        sb.append(changeLine);
-        sb.append("call i16 @putc(i16 %r4) \n" +
-                "    ret i8 0\n" +
+        sb.append("call i16 @putc(i16 %r" + localVariable + ") \n" +
+                "    ret i16 0\n" +
                 "}");
         sb.append(changeLine);
         sb.append("declare dso_local i16 @printf(i8*, ...)\n" +

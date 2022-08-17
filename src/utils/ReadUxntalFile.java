@@ -1,3 +1,5 @@
+package utils;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -187,7 +189,7 @@ public class ReadUxntalFile {
                 i++;
                 function.add(str);
             }
-            map.put("Function " + count, function);
+            map.put("utils.Function " + count, function);
             i++;
         }
 
@@ -204,7 +206,7 @@ public class ReadUxntalFile {
 //                i++;
 //                function.add(str);
 //            }
-//            map.put("Function ", function);
+//            map.put("utils.Function ", function);
 //        }
 
         // global variable

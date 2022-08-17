@@ -1,4 +1,7 @@
+package utils;
+
 import Tokens.*;
+import utils.Function;
 
 import java.util.*;
 
@@ -21,7 +24,7 @@ public class TokensMap {
      */
     public List<TokenObject> tokensMap(List<String> stringList) throws Exception {
         if (stringList == null || stringList.size() == 0) {
-            throw new Exception("TokensMap.Class tokensMap method Error: No stringList was input.");
+            throw new Exception("utils.TokensMap.Class tokensMap method Error: No stringList was input.");
         }
         addressLabelList = new ArrayList<>();
         List<TokenObject> tokenObjectList = new ArrayList<>();

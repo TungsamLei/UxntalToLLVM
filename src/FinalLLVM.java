@@ -3,6 +3,8 @@ import LLVMGenerator.LabelConvert;
 import LLVMGenerator.MainProgramConvert;
 import LLVMGenerator.ZeroPageConvert;
 import Tokens.TokenObject;
+import utils.ReadUxntalFile;
+import utils.TokensMap;
 
 import java.util.List;
 import java.util.Map;
@@ -72,7 +74,7 @@ public class FinalLLVM {
 //        }
 //        System.out.println();
 //        System.out.println("Functions:");
-//        for (Function func : tokensMap.functionList) {
+//        for (utils.Function func : tokensMap.functionList) {
 //            System.out.println("@" + func.getName());
 //        }
 
@@ -81,7 +83,7 @@ public class FinalLLVM {
 
         if (tal.size() > 3) {
             for (int i = 1; i <= tal.size() - 3; i++) {
-                String str = "Function " + i;
+                String str = "utils.Function " + i;
                 if (tal.get(str) != null && tal.get(str).size() != 0) {
                     List<TokenObject> functionTokenList = tokensMap.tokensMap(tal.get(str));
 
@@ -90,13 +92,13 @@ public class FinalLLVM {
 //                        System.out.println(tokenObject.getType() + " " + tokenObject.toString());
 //                    }
 
-//                    System.out.println("Convert Function " + i + " into LLVM.");
+//                    System.out.println("Convert utils.Function " + i + " into LLVM.");
 
                 }
             }
         }
 //        else {
-//            System.out.println("Function is null.");
+//            System.out.println("utils.Function is null.");
 //        }
 
 //        System.out.println("--------------------------------------------------------------------");

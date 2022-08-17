@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="MainProgramConvert">
+      <change afterPath="$PROJECT_DIR$/src/Testing/ex01_0_test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uxntal/ex01_0_simple_calc.tal" beforeDir="false" afterPath="$PROJECT_DIR$/Uxntal/ex01_0_simple_calc.tal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uxntal/ex01_1_simple_calc.tal" beforeDir="false" afterPath="$PROJECT_DIR$/Uxntal/ex01_1_simple_calc.tal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uxntal/ex01_2_simple_calc.tal" beforeDir="false" afterPath="$PROJECT_DIR$/Uxntal/ex01_2_simple_calc.tal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uxntal/ex01_3_simple_calc.tal" beforeDir="false" afterPath="$PROJECT_DIR$/Uxntal/ex01_3_simple_calc.tal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FinalLLVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FinalLLVM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LLVMGenerator/FunctionConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LLVMGenerator/FunctionConvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Function.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OperationType/TransferMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperationType/TransferMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReadUxntalFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ReadUxntalFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TokensMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/TokensMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +65,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReadUxntalFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ReadUxntalFile" />
+    <configuration name="utils.FinalLLVM" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="utils.FinalLLVM" />
+      <module name="UxntalToLLVM" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="utils.ReadUxntalFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="utils.ReadUxntalFile" />
       <module name="UxntalToLLVM" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -76,8 +82,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.FinalLLVM" />
+        <item itemvalue="Application.utils.FinalLLVM" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.ReadUxntalFile" />
+        <item itemvalue="Application.utils.ReadUxntalFile" />
       </list>
     </recent_temporary>
   </component>
@@ -104,7 +111,8 @@
       <workItem from="1660402683340" duration="1646000" />
       <workItem from="1660452899195" duration="24851000" />
       <workItem from="1660639299471" duration="2301000" />
-      <workItem from="1660655155205" duration="41642000" />
+      <workItem from="1660655155205" duration="42971000" />
+      <workItem from="1660737086996" duration="2336000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1658288260773</created>
@@ -176,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660715393291</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="MainProgramConvert">
+      <created>1660730952814</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1660730952814</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +223,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.StringIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.EmptyStackException" package="java.util" />
+          <option name="timeStamp" value="13" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/OperationType/TransferMap.java</url>
@@ -256,8 +275,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java</url>
-          <line>71</line>
+          <line>148</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java</url>
+          <line>81</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
