@@ -1,7 +1,7 @@
 |0000
 @x $2
 |0100 ( every program starts at address 256 )
-
+@main
 #0006 .x STZ2k ( put 6 on the stack as a 2-byte (16-bit, short in Java/C) constant.
 Store it in .x and keep the arguments, so now #0006 and .x are on the stack
 )

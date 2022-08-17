@@ -20,12 +20,12 @@ public class FinalLLVM {
         FunctionConvert functionConvert = new FunctionConvert();
         LabelConvert labelConvert = new LabelConvert();
         Map<String, List<String>> tal = readUxntalFile.splitBlock(readUxntalFile.readUnxtal());
-//        System.out.println("Here is the result:");
-//        if (tal != null) {
-//            for (String s : tal.keySet()) {
-//                System.out.println(s + "   " + tal.get(s));
-//            }
-//        }
+        System.out.println("Here is the result:");
+        if (tal != null) {
+            for (String s : tal.keySet()) {
+                System.out.println(s + "   " + tal.get(s));
+            }
+        }
 
         TokensMap tokensMap = new TokensMap();
         System.out.println("--------------------------------------------------------------------");

@@ -1,5 +1,6 @@
 package LLVMGenerator;
 
+import Tokens.Operation;
 import Tokens.TokenObject;
 
 import java.util.List;
@@ -7,9 +8,11 @@ import java.util.Stack;
 
 public class MainProgramConvert {
     public String convert(List<TokenObject> list, Stack stack) {
+        int localVariable = 0;
+
         StringBuilder sb = new StringBuilder();
         String changeLine = "\r\n";
-        sb.append("define i8 @main() {");  // |0100
+        sb.append("define i16 @main() {");  // |0100  本程序默认i16
         if (list.get(2).toString() == "@main") {
             list.remove(2);
         } //remove @main
@@ -36,18 +39,16 @@ public class MainProgramConvert {
             if (list.get(i).getType().equals("LiteralConstant")) {
                 String content = list.get(i).getContent();
                 if (content.length() == 4) {
-                    stack.push(content.substring(0, 1)); // 不用转换进制，用 u0×
-                    stack.push(content.substring(2, 3));
+                    stack.push(content); // 不用转换进制，用 u0×
                 } else if (content.length() == 2) {
-                    stack.push(content);
+                    stack.push("00" + content);
                 } else {
                     i++;
                     String rawContent = list.get(i).getContent();
                     if (rawContent.length() == 4) {
-                        stack.push(rawContent.substring(0, 1));
-                        stack.push(rawContent.substring(2, 3));
-                    } else if (rawContent.length() == 2) {
                         stack.push(rawContent);
+                    } else if (rawContent.length() == 2) {
+                        stack.push("00" + rawContent);
                     }
                     continue;
                 }
@@ -59,21 +60,67 @@ public class MainProgramConvert {
                 char indication = list.get(i).toString().charAt(0);
                 String content = list.get(i).toString().substring(1);
                 if (indication == '.') {
-                    sb.append("i16* @" + content); //调 zero page的全局变量
-                    sb.append(changeLine);
-                    continue;
-                } else if (indication == ';') { //后面一定是跟 JSR2，可以把JSR2 remove了
-                    int top = (int) stack.pop();
-                    int top2 = (int) stack.pop();
-                    sb.append("call i16 @" + content + "(i16 u0×" + top2 + top + ")");  //调function,传参：stack现在最顶上的两个值
-                    sb.append(changeLine);
                     i++;
-                    list.remove(i);
+                    String top = (String) stack.pop();
+                    String temp;
+                    if (top.contains("%")) {
+                        temp = top;
+                    } else {
+                        temp = "u0×" + top;
+                    }
+                    String operation = list.get(i).toString().substring(0, 3);
+                    String pattern = content.substring(3);
+                    if (operation.equals("STZ")) {
+                        if (pattern.contains("2")) {
+                            //        store i16 u0x0006, i16* @x
+                            sb.append("store i16 " + temp + "i16* @" + content); //调 zero page的全局变量
+                            sb.append(changeLine);
+                        } else {
+                            String str2 = top.substring(0, 2);
+                            String str1 = top.substring(2);
+                            sb.append("store i16 u0×00" + str1 + "i16* @" + content); //调 zero page的全局变量
+                            sb.append(changeLine);
+                            stack.push("00" + str2);
+                        }
+                        if (pattern.contains("k")) {
+                            stack.push(top);
+                        }
+                    } else {
+                        localVariable++;
+//                        if (pattern.contains("2")) {
+                        //        %r1 = load i16, i16* @x
+                        sb.append("%r" + localVariable + " = load i16, i16* @" + content); //调 zero page的全局变量
+                        sb.append(changeLine);
+//                        } else {
+//                            String str2 = top.substring(0, 2);
+//                            String str1 = top.substring(2);
+//                            sb.append("%r" + localVariable + " = load i16, i16* @" + content); //调 zero page的全局变量
+//                            sb.append(changeLine);
+//                            stack.push("00" + str2);
+//                        }
+                        if (pattern.contains("k")) {
+                            stack.push(top);
+                        }
+                        stack.push("%r" + localVariable);
+                    }
                     continue;
+                } else if (indication == ';') {
+                    String top = (String) stack.pop();
+//                    String top2 = (String) stack.pop();
+//                      %r1 = call i16 @loop(i16 u0x0010)
+                    if (top.contains("%")) {
+                        sb.append("call i16 @" + content + "(i16 " + top + ")");  //调function,传参：stack现在最顶上的两个byte
+                        sb.append(changeLine);
+                        continue;
+                    } else {
+                        sb.append("call i16 @" + content + "(i16 u0×" + top + ")");  //调function,传参：stack现在最顶上的两个byte
+                        sb.append(changeLine);
+                        continue;
+                    }
                 } else { // ',&'
                     String name = list.get(i).toString().substring(2);
                     sb.append("%" + name + " = "); //调 label 里面的临时变量
-                    sb.append(changeLine);
+//                    sb.append(changeLine);
                     continue;
                 }
             }
@@ -81,7 +128,71 @@ public class MainProgramConvert {
 
 //            Operation
             if (list.get(i).getType().equals("Operation")) {
-
+                String content = list.get(i).toString();
+                String operation = content.substring(0, 3);
+                String pattern = content.substring(3);
+                if (operation.equals("ADD") || operation.equals("SUB") || operation.equals("MUL") || operation.equals("DIV")) {
+                    String top = (String) stack.pop();
+                    String top2 = (String) stack.pop();
+                    localVariable++;
+                    if (pattern.contains("2")) {
+                        String temp1 = top;
+                        String temp2 = top2;
+                        if (!top.contains("%")) {
+                            temp1 = "u0×" + top;
+                        }
+                        if (!top2.contains("%")) {
+                            temp2 = "u0×" + top;
+                        }
+                        //  %r1 = mul i16 u0x0007, u0x0006
+                        sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + temp1 + "," + temp2);
+                        sb.append(changeLine);
+                    } else {
+                        String str2 = top.substring(0, 2);
+                        String str1 = top.substring(2);
+                        sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + "u0×" + str1 + "," + "u0×" + str2);
+                        sb.append(changeLine);
+                    }
+                    if (pattern.contains("k")) {
+                        stack.push(top2);
+                        stack.push(top);
+                    }
+                    if (pattern.contains("r")) {
+//                        sb.append("Not yet support return mode");
+//                        sb.append(changeLine);
+                    }
+                    stack.push("%r" + localVariable);
+                    continue;
+                }
+                if (operation.equals("INC")) {
+                    String top = (String) stack.pop();
+                    String temp;
+                    if (top.contains("%")) {
+                        temp = top;
+                    } else {
+                        temp = "u0×" + top;
+                    }
+//                    %r1 = add i16 1,u0x0006
+                    localVariable++;
+                    sb.append("%r" + localVariable + " = add i16 1," + temp);
+                    sb.append(changeLine);
+                    if (pattern.contains("k")) {
+                        stack.push(top);
+                    }
+                    stack.push("%r" + localVariable);
+                    continue;
+                }
+                if (operation.equals("JSR")) {
+                    continue;
+                }
+                if (operation.equals("POP")) {
+                    stack.pop();
+                }
+                if (operation.equals("DUP")) {
+                    String top = (String) stack.pop();
+                    stack.push(top);
+                    stack.push(top);
+                }
             }
         }
 

@@ -2,7 +2,7 @@
 @x $2
 
 |0100 ( every program starts at address 256 )
-
+@main
 #0006 .x STZ2 
 .x LDZ2 ( put 6 on the stack as a 2-byte (16-bit, short in Java/C) constant )
 #0007 ( put 7 on the stack as a 2-byte (16-bit, short in Java/C) constant )
