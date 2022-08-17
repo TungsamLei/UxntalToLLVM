@@ -1,6 +1,6 @@
 ( Example that calculates 6*7 using 8-bit integers, byte in Java )
 |0100 ( every program starts at address 256 )
-
+@main
 #06 ( put 6 on the stack as a byte (8-bit) )
 DUP ( duplicate, so there are now two values on the stack, both 6 )
 INC ( increment the value on the top of the stack, so 6+1 )

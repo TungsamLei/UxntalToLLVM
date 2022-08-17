@@ -16,12 +16,62 @@
 -为这个操作创建一个RegisterToken，并将其添加到LLVM IR程序的令牌列表中
 使用这种算法，Uxntal程序中的每个令牌要么被删除，要么被一个新的RegisteredOperation令牌取代。下一步是使用LLVM IR语法打印这个列表
  */
-package Tokens;
+package utils;
+
+import Tokens.Operation;
+import Tokens.Register;
+import Tokens.TokenObject;
 
 import java.util.List;
 
 public class RegisteredOperation {
-    Operation operation;
-    List<TokenObject> arguments;
-    Register retval;
+    int count;
+    String operation; //STZ
+    String value;  // 0006
+    String name;  // @x  %r1
+//    Operation operation;
+//    List<TokenObject> arguments;
+//    Register retval;
+
+    public RegisteredOperation() {
+    }
+
+    public RegisteredOperation(int count, String operation, String value, String name) {
+        this.count = count;
+        this.operation = operation;
+        this.value = value;
+        this.name = name;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

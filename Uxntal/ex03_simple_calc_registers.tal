@@ -2,6 +2,7 @@
 @x $2
 
 |0100
+@main
 ( store 6 in register x )
 #0006 .x STZ2
 ( load 6 from x )

@@ -2,6 +2,7 @@
 @x1 $2
 @x2 $2
 |0100
+@main
 ( store 6 in register x )
 #0006 .x1 STZ2
 ( load 6 from x1, increment and store 7 in x2 )

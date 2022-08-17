@@ -3,6 +3,7 @@
 @x $1
 
 |0100
+@main
 ( store 6 in register x, as a byte )
 #06 .x STZ
 ( load 6 from x )

@@ -2,14 +2,17 @@ package LLVMGenerator;
 
 import Tokens.Operation;
 import Tokens.TokenObject;
+import utils.RegisteredOperation;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
 public class MainProgramConvert {
     public String convert(List<TokenObject> list, Stack stack) {
         int localVariable = 0;
-
+        List<RegisteredOperation> registeredOperations = new ArrayList<>();
+        int registerCount = 0;
         StringBuilder sb = new StringBuilder();
         String changeLine = "\r\n";
         String tab = "\t";
@@ -79,7 +82,7 @@ public class MainProgramConvert {
                             sb.append("store i16 " + temp + ", i16* @" + content); //调 zero page的全局变量
                             sb.append(changeLine);
                             sb.append(tab);
-                            System.out.println("82 line: "+sb);
+                            System.out.println("82 line: " + sb);
                         } else {
                             String str2 = top.substring(0, 2);
                             String str1 = top.substring(2);
@@ -87,11 +90,18 @@ public class MainProgramConvert {
                             sb.append(changeLine);
                             sb.append(tab);
                             stack.push("00" + str2);
-                            System.out.println("90 : "+sb);
+                            System.out.println("90 : " + sb);
                         }
                         if (pattern.contains("k")) {
                             stack.push(top);
                         }
+                        registerCount++;
+                        RegisteredOperation registeredOperation = new RegisteredOperation();
+                        registeredOperation.setCount(registerCount);
+                        registeredOperation.setName("@" + content);
+                        registeredOperation.setValue(top);
+                        registeredOperations.add(registeredOperation);
+//                        registeredOperation.setOperation();
                     } else {
                         localVariable++;
 //                        if (pattern.contains("2")) {
@@ -99,7 +109,7 @@ public class MainProgramConvert {
                         sb.append("%r" + localVariable + " = load i16, i16* @" + content); //调 zero page的全局变量
                         sb.append(changeLine);
                         sb.append(tab);
-                        System.out.println("102 : "+sb);
+                        System.out.println("102 : " + sb);
 
 
 //                        } else {
@@ -181,6 +191,7 @@ public class MainProgramConvert {
                 }
                 if (operation.equals("INC")) {
                     String top = (String) stack.pop();
+                    System.out.println("194 : " + top);
                     String temp;
                     if (top.contains("%")) {
                         temp = top;
@@ -190,6 +201,7 @@ public class MainProgramConvert {
 //                    %r1 = add i16 1,u0x0006
                     localVariable++;
                     sb.append("%r" + localVariable + " = add i16 1," + temp);
+                    System.out.println("204" + sb);
                     sb.append(changeLine);
                     sb.append(tab);
                     if (pattern.contains("k")) {
@@ -208,6 +220,15 @@ public class MainProgramConvert {
                     String top = (String) stack.pop();
                     stack.push(top);
                     stack.push(top);
+                }
+                if (operation.equals("LDZ")) {
+                    localVariable++;
+//                    System.out.println("226: registercount" + registerCount);
+                    stack.push(registeredOperations.get(registerCount - 1).getValue());
+//                            %r1 = load i16, i16* @x
+                    sb.append("%r" + localVariable + " = load i16, i16* " + registeredOperations.get(registerCount-1).getName());
+                    sb.append(changeLine);
+                    sb.append(tab);
                 }
             }
         }

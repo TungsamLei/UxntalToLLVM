@@ -1,7 +1,6 @@
 package utils;
 
 import Tokens.*;
-import utils.Function;
 
 import java.util.*;
 
@@ -97,8 +96,8 @@ public class TokensMap {
         Operation operation = new Operation();
         Padding padding = new Padding();
         RawConstant rawConstant = new RawConstant();
-        Register register = new Register();
-        RegisteredOperation registeredOperation = new RegisteredOperation();
+//        Register register = new Register();
+//        RegisteredOperation registeredOperation = new RegisteredOperation();
 
         char indication = str.charAt(0);
         String followContent = str.substring(1);

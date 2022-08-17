@@ -2,6 +2,7 @@
 @sum $1
 @action $2
 |0100
+@main
 #00 .sum STZ
 
 ;write_array .action STZ2

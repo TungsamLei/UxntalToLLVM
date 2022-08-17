@@ -1,6 +1,6 @@
 ( A Hello World example )
 |0100 
-
+@main
 	;hello_world 
 
 	&while

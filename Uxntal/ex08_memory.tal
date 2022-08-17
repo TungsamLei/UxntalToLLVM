@@ -3,6 +3,7 @@
 @sum $2
 
 |0100
+@main
 #0000 .sum STZ2
 
 ;write_array 

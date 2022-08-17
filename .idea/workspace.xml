@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="01_2" />
+    <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="01_2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/ex02_simple_calc_8bit.tal" beforeDir="false" afterPath="$PROJECT_DIR$/Uxntal/ex02_simple_calc_8bit.tal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/ex03_simple_calc_registers.tal" beforeDir="false" afterPath="$PROJECT_DIR$/Uxntal/ex03_simple_calc_registers.tal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/ex04_simple_calc_registers_8bit.tal" beforeDir="false" afterPath="$PROJECT_DIR$/Uxntal/ex04_simple_calc_registers_8bit.tal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/ex05_simple_calc_registers2.tal" beforeDir="false" afterPath="$PROJECT_DIR$/Uxntal/ex05_simple_calc_registers2.tal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/ex06_subroutine-call.tal" beforeDir="false" afterPath="$PROJECT_DIR$/Uxntal/ex06_subroutine-call.tal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/ex07_subroutine-call_8bit.tal" beforeDir="false" afterPath="$PROJECT_DIR$/Uxntal/ex07_subroutine-call_8bit.tal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/ex08_memory.tal" beforeDir="false" afterPath="$PROJECT_DIR$/Uxntal/ex08_memory.tal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/ex09_memory_8bit.tal" beforeDir="false" afterPath="$PROJECT_DIR$/Uxntal/ex09_memory_8bit.tal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/ex10_hello-world.tal" beforeDir="false" afterPath="$PROJECT_DIR$/Uxntal/ex10_hello-world.tal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tokens/RegisteredOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/RegisteredOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/TokensMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/TokensMap.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +117,7 @@
       <workItem from="1660452899195" duration="24851000" />
       <workItem from="1660639299471" duration="2301000" />
       <workItem from="1660655155205" duration="42971000" />
-      <workItem from="1660737086996" duration="2695000" />
+      <workItem from="1660737086996" duration="6807000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1658288260773</created>
@@ -189,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660739758938</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="01_2">
+      <created>1660739803832</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1660739803832</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,23 +295,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java</url>
-          <line>148</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java</url>
-          <line>81</line>
+          <line>84</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java</url>
-          <line>89</line>
+          <line>92</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java</url>
-          <line>101</line>
+          <line>111</line>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java</url>
+          <line>193</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java</url>
+          <line>203</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java</url>
+          <line>226</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java</url>
+          <line>225</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
