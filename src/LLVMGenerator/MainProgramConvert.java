@@ -17,7 +17,7 @@ public class MainProgramConvert {
         String changeLine = "\r\n";
         String tab = "\t";
         sb.append("define i16 @main() {");  // |0100  本程序默认i16
-        if (list.get(2).toString() == "@main") {
+        if (list.get(1).toString() == "@main") {
             list.remove(2);
         } //remove @main
         sb.append(changeLine);
@@ -39,7 +39,7 @@ public class MainProgramConvert {
          *
          */
 
-        for (int i = 2; i <= list.size() - 4; i++) {
+        for (int i = 1; i <= list.size() - 4; i++) {
 
 //            LiteralConstant
             if (list.get(i).getType().equals("LiteralConstant")) {
@@ -82,7 +82,7 @@ public class MainProgramConvert {
                             sb.append("store i16 " + temp + ", i16* @" + content); //调 zero page的全局变量
                             sb.append(changeLine);
                             sb.append(tab);
-                            System.out.println("82 line: " + sb);
+//                            System.out.println("82 line: " + sb);
                         } else {
                             String str2 = top.substring(0, 2);
                             String str1 = top.substring(2);
@@ -90,7 +90,7 @@ public class MainProgramConvert {
                             sb.append(changeLine);
                             sb.append(tab);
                             stack.push("00" + str2);
-                            System.out.println("90 : " + sb);
+//                            System.out.println("90 : " + sb);
                         }
                         if (pattern.contains("k")) {
                             stack.push(top);
@@ -109,7 +109,7 @@ public class MainProgramConvert {
                         sb.append("%r" + localVariable + " = load i16, i16* @" + content); //调 zero page的全局变量
                         sb.append(changeLine);
                         sb.append(tab);
-                        System.out.println("102 : " + sb);
+//                        System.out.println("102 : " + sb);
 
 
 //                        } else {
@@ -191,7 +191,7 @@ public class MainProgramConvert {
                 }
                 if (operation.equals("INC")) {
                     String top = (String) stack.pop();
-                    System.out.println("194 : " + top);
+//                    System.out.println("194 : " + top);
                     String temp;
                     if (top.contains("%")) {
                         temp = top;
@@ -201,7 +201,7 @@ public class MainProgramConvert {
 //                    %r1 = add i16 1,u0x0006
                     localVariable++;
                     sb.append("%r" + localVariable + " = add i16 1," + temp);
-                    System.out.println("204" + sb);
+//                    System.out.println("204" + sb);
                     sb.append(changeLine);
                     sb.append(tab);
                     if (pattern.contains("k")) {
