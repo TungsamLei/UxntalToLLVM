@@ -118,10 +118,10 @@ public class TokensMap {
             addressLabelReference.setType("AddressLabelReference");
             return addressLabelReference;
         }
-        if (literal.isLiteral(indication + "")) {
-            return new LiteralConstant("" + indication, followContent);
-        } else if (literal.isLiteral(str.substring(0, 3))) {
-            return new LiteralConstant(str.substring(0, 3), str.substring(3));
+        if (literal.isLiteral(indication + "")) { //#
+            return new LiteralConstant("" + indication, followContent);  // #0000
+        } else if (literal.isLiteral(str.substring(0, 3))) { // LIT
+            return new LiteralConstant(str.substring(0, 3), ""); // LIT 或者 LIT2 都改成 # ，没有content， content是下一个RawContent
         }
 
         if (str.length() >= 3 && operation.isOperationType(str)) {

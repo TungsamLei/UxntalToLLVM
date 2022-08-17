@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="zeropageconvert &amp; part of mainprogramconvert" />
+    <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="debug">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LLVMGenerator/FinalLLVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FinalLLVM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tokens/LiteralConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tokens/LiteralConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TokensMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TokensMap.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +47,14 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.FinalLLVM">
+    <configuration name="FinalLLVM" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FinalLLVM" />
+      <module name="UxntalToLLVM" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="UxntalToLLVM" />
@@ -58,6 +71,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FinalLLVM" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.ReadUxntalFile" />
       </list>
@@ -86,7 +100,7 @@
       <workItem from="1660402683340" duration="1646000" />
       <workItem from="1660452899195" duration="24851000" />
       <workItem from="1660639299471" duration="2301000" />
-      <workItem from="1660655155205" duration="18908000" />
+      <workItem from="1660655155205" duration="28772000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1658288260773</created>
@@ -144,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660678134181</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="debug">
+      <created>1660678432524</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1660678432524</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,9 +186,9 @@
     <MESSAGE value="init" />
     <MESSAGE value="Token Class basic &amp; Uxntal files" />
     <MESSAGE value="token map" />
-    <MESSAGE value="debug" />
     <MESSAGE value="zeropageconvert &amp; part of mainprogramconvert" />
-    <option name="LAST_COMMIT_MESSAGE" value="zeropageconvert &amp; part of mainprogramconvert" />
+    <MESSAGE value="debug" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

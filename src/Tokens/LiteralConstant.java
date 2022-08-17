@@ -6,15 +6,15 @@ they start with `#` or are preceded by `LIT` or `LIT2`
 package Tokens;
 
 public class LiteralConstant extends TokenObject {
-    String indication;
-    String content;
+    String indication; // # LIT LIT2
+    String content; // the number behind #
 
     public LiteralConstant() {
     }
 
     public LiteralConstant(String indication, String content) throws Exception {
         this.indication = indicationConvert(indication);
-        this.content = contentConvert(content);
+        this.content = content;
         this.setType("LiteralConstant");
     }
 
@@ -24,13 +24,13 @@ public class LiteralConstant extends TokenObject {
         } else throw new Exception("Error: Not a literal indication.");
     }
 
-    //    要不要在这里就转成十进制？
-    public String contentConvert(String content) {
-        if (!content.equals("")) {
-            return Integer.parseInt(content, 16) + "";  //Convert to decimal
-        } else
-            return null;
-    }
+    //    不转十进制，方便 ’2‘ 操作
+//    public String contentConvert(String content) {
+//        if (!content.equals("")) {
+//            return Integer.parseInt(content, 16) + "";  //Convert to decimal
+//        } else
+//            return null;
+//    }
 
     public boolean isLiteral(String indication) {
         return indication.equals("#") || indication.equals("LIT") || indication.equals("LIT2");
