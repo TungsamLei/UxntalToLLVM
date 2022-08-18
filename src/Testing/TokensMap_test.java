@@ -12,7 +12,6 @@ import java.util.List;
 public class TokensMap_test {
 
     TokensMap tokensMap = new TokensMap();
-    TokenObject tokenObject = new TokenObject();
 
     @Test
     public void tokensMapTest() {

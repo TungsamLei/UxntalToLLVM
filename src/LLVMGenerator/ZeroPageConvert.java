@@ -17,9 +17,9 @@ public class ZeroPageConvert {
                 name = "@" + object.getContent();
                 sb.append(name);
             } else if (object.toString().contains("$")) {
-                int temp = Integer.valueOf(object.getContent());
-                int i = 8 * temp;
-                sb.append(" = global i" + i + " u0x0000");
+//                int temp = Integer.valueOf(object.getContent());
+//                int i = 8 * temp;
+                sb.append(" = global i16 u0x0000");
                 sb.append(changeLine);
             }
         }
