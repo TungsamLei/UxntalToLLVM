@@ -29,9 +29,6 @@ public class RegisteredOperation {
     String operation; //STZ
     String value;  // 0006
     String name;  // @x  %r1
-//    Operation operation;
-//    List<TokenObject> arguments;
-//    Register retval;
 
     public RegisteredOperation() {
     }

@@ -174,41 +174,6 @@ public class ReadUxntalFile {
         }
         map.put("Main Program", mainProgram);
 
-
-//        i++;
-//        while (i < list.size()) {
-////            function
-//            int functionCount = 0;
-//            if (list.get(i).contains("@")) {
-//                List<String> function = new ArrayList<>();
-//                functionCount++;
-//                while (i < list.size()) {
-//                    String str = list.get(i);
-//                    if (str.contains("JMP2") || str.contains("JMP2r")) {
-//                        function.add(str);
-//                        break;
-//                    }
-//                    i++;
-//                    function.add(str);
-//                }
-//                map.put("function" + functionCount, function);
-//                i++;
-//                continue;
-//            }
-////            label
-//            if (list.get(i).contains("&")) {
-//                List<String> label = new ArrayList<>();
-//                while (i < list.size()) {
-//                    String str = list.get(i);
-//                    label.add(str);
-//                    i++;
-//                    break;
-//                }
-//                map.put("Label", label);
-//            }
-//            i++;
-//        }
-
         i++;
         int count = 0;
         while (i < list.size() && list.get(i).contains("@")) {
@@ -226,22 +191,6 @@ public class ReadUxntalFile {
             map.put("utils.Function " + count, function);
             i++;
         }
-
-//        //
-//        i++;
-//        if (i < list.size() && list.get(i).contains("@")) {
-//            List<String> function = new ArrayList<>();
-//            while (i < list.size()) {
-//                String str = list.get(i);
-//                if (str.contains("&")) {
-//                    function.add(str);
-//                    break;
-//                }
-//                i++;
-//                function.add(str);
-//            }
-//            map.put("utils.Function ", function);
-//        }
 
         // global variable
         i++;

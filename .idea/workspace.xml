@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="completed except testing">
-      <change afterPath="$PROJECT_DIR$/src/Testing/ex01_1_test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Testing/ex01_2_test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Testing/ex01_3_test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Testing/ex03_test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Testing/ex05_test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Testing/ex06_test.java" afterDir="false" />
+    <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="testing">
+      <change afterPath="$PROJECT_DIR$/src/Testing/ReadUxntalFile_test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Testing/TokensMap_test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Testing/ZeroPageConvertTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UxntalToLLVM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UxntalToLLVM.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FinalLLVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FinalLLVM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LLVMGenerator/FunctionConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LLVMGenerator/FunctionConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LLVMGenerator/MainProgramConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LLVMGenerator/ZeroPageConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LLVMGenerator/ZeroPageConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/hello-2bpp-sprite.tal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/hello-keyboard.tal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/hello-keyboard2.tal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/hello-pixel.tal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/hello-pixel2.tal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/hello-screen.tal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/hello-sprite.tal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/hello-sprites.tal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uxntal/hello.tal" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Testing/ex01_0_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Testing/ex01_0_test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Testing/ex01_1_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Testing/ex01_1_test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Testing/ex01_2_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Testing/ex01_2_test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Testing/ex01_3_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Testing/ex01_3_test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Testing/ex03_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Testing/ex03_test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Testing/ex05_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Testing/ex05_test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Testing/ex06_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Testing/ex06_test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tokens/RawConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tokens/RawConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/ReadUxntalFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ReadUxntalFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/RegisteredOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/RegisteredOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/TokensMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/TokensMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,15 +70,8 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.Testing in UxntalToLLVM">
-    <configuration name="FinalLLVM" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="FinalLLVM" />
-      <module name="UxntalToLLVM" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Testing in UxntalToLLVM" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TokensMap_test.tokensMapTest">
+    <configuration name="ReadUxntalFile_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="UxntalToLLVM" />
       <extension name="coverage">
         <pattern>
@@ -78,12 +80,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Testing" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="Testing.ReadUxntalFile_test" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ex05_test.ex05_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReadUxntalFile_test.clearCommentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="UxntalToLLVM" />
       <extension name="coverage">
         <pattern>
@@ -92,14 +95,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Testing" />
-      <option name="MAIN_CLASS_NAME" value="Testing.ex05_test" />
-      <option name="METHOD_NAME" value="ex05_test" />
+      <option name="MAIN_CLASS_NAME" value="Testing.ReadUxntalFile_test" />
+      <option name="METHOD_NAME" value="clearCommentTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ex06_test.ex05_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReadUxntalFile_test.readUxntalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="UxntalToLLVM" />
       <extension name="coverage">
         <pattern>
@@ -108,14 +111,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Testing" />
-      <option name="MAIN_CLASS_NAME" value="Testing.ex06_test" />
-      <option name="METHOD_NAME" value="ex05_test" />
+      <option name="MAIN_CLASS_NAME" value="Testing.ReadUxntalFile_test" />
+      <option name="METHOD_NAME" value="readUxntalTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ex06_test.ex06_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReadUxntalFile_test.splitBlockTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="UxntalToLLVM" />
       <extension name="coverage">
         <pattern>
@@ -124,8 +127,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Testing" />
-      <option name="MAIN_CLASS_NAME" value="Testing.ex06_test" />
-      <option name="METHOD_NAME" value="ex06_test" />
+      <option name="MAIN_CLASS_NAME" value="Testing.ReadUxntalFile_test" />
+      <option name="METHOD_NAME" value="splitBlockTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TokensMap_test.tokensMapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="UxntalToLLVM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Testing" />
+      <option name="MAIN_CLASS_NAME" value="Testing.TokensMap_test" />
+      <option name="METHOD_NAME" value="tokensMapTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -133,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Testing in UxntalToLLVM" />
-        <item itemvalue="JUnit.ex06_test.ex06_test" />
-        <item itemvalue="Application.FinalLLVM" />
-        <item itemvalue="JUnit.ex06_test.ex05_test" />
-        <item itemvalue="JUnit.ex05_test.ex05_test" />
+        <item itemvalue="JUnit.TokensMap_test.tokensMapTest" />
+        <item itemvalue="JUnit.ReadUxntalFile_test.splitBlockTest" />
+        <item itemvalue="JUnit.ReadUxntalFile_test" />
+        <item itemvalue="JUnit.ReadUxntalFile_test.clearCommentTest" />
+        <item itemvalue="JUnit.ReadUxntalFile_test.readUxntalTest" />
       </list>
     </recent_temporary>
   </component>
@@ -167,7 +186,7 @@
       <workItem from="1660655155205" duration="42971000" />
       <workItem from="1660737086996" duration="9158000" />
       <workItem from="1660751341765" duration="1369000" />
-      <workItem from="1660799004044" duration="11222000" />
+      <workItem from="1660799004044" duration="19077000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1658288260773</created>
@@ -274,7 +293,21 @@
       <option name="project" value="LOCAL" />
       <updated>1660747203500</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="testing">
+      <created>1660819085579</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1660819085579</updated>
+    </task>
+    <task id="LOCAL-00017" summary="testing">
+      <created>1660819138844</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1660819138844</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +334,8 @@
     <MESSAGE value="01_2" />
     <MESSAGE value="mainprogramconvert debug finally T_T" />
     <MESSAGE value="completed except testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed except testing" />
+    <MESSAGE value="testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -5,6 +5,7 @@ import LLVMGenerator.LabelConvert;
 import LLVMGenerator.MainProgramConvert;
 import LLVMGenerator.ZeroPageConvert;
 import Tokens.TokenObject;
+import org.junit.Assert;
 import org.junit.Test;
 import utils.ReadUxntalFile;
 import utils.TokensMap;
@@ -71,7 +72,7 @@ public class ex06_test {
             test = test + labelLLVM;
         }
 
-        assertEquals("ex06_test failed","define i16 @main() {\n" +
+        Assert.assertEquals("ex06_test failed","define i16 @main() {\n" +
                 "\tcall i16 @sum-sq(i16 u0x0003, i16 u0x0004)\n" +
                 "\tret i16 %r1\n" +
                 "\tcall i16 @sum-sq(i16 u0x0003, i16 u0x0002)\n" +

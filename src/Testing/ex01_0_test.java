@@ -5,6 +5,7 @@ import LLVMGenerator.LabelConvert;
 import LLVMGenerator.MainProgramConvert;
 import LLVMGenerator.ZeroPageConvert;
 import Tokens.TokenObject;
+import org.junit.Assert;
 import org.junit.Test;
 import utils.ReadUxntalFile;
 import utils.TokensMap;
@@ -69,7 +70,7 @@ public class ex01_0_test {
             test = test + labelLLVM;
         }
 
-        assertEquals("ex01_0_test failed",
+        Assert.assertEquals("ex01_0_test failed",
                 "define i16 @main() {\n" +
                 "\t%r1 = mul i16 u0x0007, u0x0006\n" +
                 "\tcall i16 @putc(i16 %r1)\n" +

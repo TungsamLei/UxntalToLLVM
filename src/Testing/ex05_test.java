@@ -5,6 +5,7 @@ import LLVMGenerator.LabelConvert;
 import LLVMGenerator.MainProgramConvert;
 import LLVMGenerator.ZeroPageConvert;
 import Tokens.TokenObject;
+import org.junit.Assert;
 import org.junit.Test;
 import utils.ReadUxntalFile;
 import utils.TokensMap;
@@ -70,7 +71,7 @@ public class ex05_test {
             test = test + labelLLVM;
         }
 
-        assertEquals("ex05_test failed","@x1 = global i16 u0x0000\n" +
+        Assert.assertEquals("ex05_test failed","@x1 = global i16 u0x0000\n" +
                 "@x2 = global i16 u0x0000\n" +
                 "define i16 @main() {\n" +
                 "\tstore i16 u0x0006, i16* @x1\n" +

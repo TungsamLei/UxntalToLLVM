@@ -27,7 +27,7 @@ public class RawConstant extends TokenObject{
         String regEx = "[ _`[email protected]#$%^&*()+=|{}‘:;‘,\\[\\].<>/?~！@#￥%……&*()——+|{}【】‘；：”“’。，、？]|\n|\r|\t";
         Pattern p = Pattern.compile(regEx);
         Matcher m = p.matcher(content);
-        return m.find();
+        return !m.find();
     }
 
     public String contentConvert(String Content) {
