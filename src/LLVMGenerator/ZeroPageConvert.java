@@ -10,7 +10,7 @@ public class ZeroPageConvert {
 
     public String convert(List<TokenObject> list) {
         StringBuilder sb = new StringBuilder();
-        String changeLine = " \r\n ";
+        String changeLine = "\n";
         for (TokenObject object : list) {
             String name = "";
             if (object.getType().equals("AddressLabel")) {

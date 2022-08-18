@@ -9,19 +9,20 @@ import org.junit.Test;
 import utils.ReadUxntalFile;
 import utils.TokensMap;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Stack;
 
 import static org.junit.Assert.assertEquals;
 
-public class ex01_0_test {
-
+public class ex03_test {
     /**
-     * Test whether the program can compile the ex01_0_simple_calc.tal correctly.
+     * Test whether the program can compile the ex03_simple_calc_registers.tal correctly.
      *
      * @throws Exception
      */
     @Test
-    public void ex01_0_test() throws Exception {
+    public void ex03_test() throws Exception {
 
         ReadUxntalFile readUxntalFile = new ReadUxntalFile();
         Stack stack = new Stack();
@@ -32,20 +33,20 @@ public class ex01_0_test {
         TokensMap tokensMap = new TokensMap();
         String test = "";
 
-        Map<String, List<String>> tal = readUxntalFile.splitBlock(readUxntalFile.readUxntalTest("ex01_0_simple_calc"));
+        Map<String, List<String>> tal = readUxntalFile.splitBlock(readUxntalFile.readUxntalTest("ex03_simple_calc_registers"));
 
 //        zero page convert
         if (tal.get("Zero Page") != null && tal.get("Zero Page").size() != 0) {
             List<TokenObject> zeroPageTokenList = tokensMap.tokensMap(tal.get("Zero Page"));
             String zeroPageLLVM = zeroPageConvert.convert(zeroPageTokenList);
-            System.out.println(zeroPageLLVM);
+//            System.out.println(zeroPageLLVM);
             test += zeroPageLLVM;
         }
 
 //        main program convert
         List<TokenObject> mainProgramTokenList = tokensMap.tokensMap(tal.get("Main Program"));
         String mainProgramLLVM = mainProgramConvert.convert(mainProgramTokenList, stack);
-        System.out.println(mainProgramLLVM);
+//        System.out.println(mainProgramLLVM);
         test += mainProgramLLVM;
 
 //        function convert
@@ -55,7 +56,7 @@ public class ex01_0_test {
                 if (tal.get(str) != null && tal.get(str).size() != 0) {
                     List<TokenObject> functionTokenList = tokensMap.tokensMap(tal.get(str));
                     String functionLLVM = functionConvert.convert(functionTokenList, stack);
-                    System.out.println(functionLLVM);
+//                    System.out.println(functionLLVM);
                     test += functionLLVM;
                 }
             }
@@ -65,14 +66,18 @@ public class ex01_0_test {
         if (tal.get("Label") != null && tal.get("Label").size() != 0) {
             List<TokenObject> labelTokenList = tokensMap.tokensMap(tal.get("Label"));
             String labelLLVM = labelConvert.convert(labelTokenList, stack);
-            System.out.println(labelLLVM);
+//            System.out.println(labelLLVM);
             test = test + labelLLVM;
         }
 
-        assertEquals("ex01_0_test failed",
+        assertEquals("ex03_test failed","@x = global i16 u0x0000\n" +
                 "define i16 @main() {\n" +
-                "\t%r1 = mul i16 u0x0007, u0x0006\n" +
-                "\tcall i16 @putc(i16 %r1)\n" +
+                "\tstore i16 u0x0006, i16* @x\n" +
+                "\t%r1 = load i16, i16* @x\n" +
+                "\t%r2 = load i16, i16* @x\n" +
+                "\t%r3 = add i16 1,%r2\n" +
+                "\t%r4 = mul i16 %r3,%r1\n" +
+                "\tcall i16 @putc(i16 %r4)\n" +
                 "\tret i16 0\n" +
                 "}\n" +
                 "declare dso_local i16 @printf(i8*, ...)\n" +
@@ -84,7 +89,6 @@ public class ex01_0_test {
                 "}\n" +
                 "\n" +
                 "@.str = private unnamed_addr constant [3 x i8] c\"%c\\00\", align 1\n", test);
-        System.out.println("ex01_0_test pass successfully.");
+        System.out.println("ex03_test pass successfully.");
     }
 }
-

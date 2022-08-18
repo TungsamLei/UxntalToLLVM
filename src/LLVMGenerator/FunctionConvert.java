@@ -13,7 +13,7 @@ public class FunctionConvert {
         List<RegisteredOperation> registeredOperations = new ArrayList<>();
         int registerCount = 0;
         StringBuilder sb = new StringBuilder();
-        String changeLine = "\r\n";
+        String changeLine = "\n";
         String tab = "\t";
 
 
@@ -33,11 +33,12 @@ public class FunctionConvert {
 
         for (int i = 0; i < list.size(); i++) {
 //            Padding
-            if (list.get(i).getType().equals("Padding")) {
+            if (list.get(i).getType().equals("AddressLabel")) {
                 String name = list.get(i).toString().substring(1);
-                sb.append("define i16 @" + name + "(i16 %r1) {");  // method name
+                sb.append("define i16 @" + name + "(i16 %r1, i16 %r2) {");  // method name
                 sb.append(changeLine);
                 sb.append(tab);
+                stack.push("%r2");
                 stack.push("%r1");
             }
 
@@ -45,7 +46,7 @@ public class FunctionConvert {
             if (list.get(i).getType().equals("LiteralConstant")) {
                 String content = list.get(i).getContent();
                 if (content.length() == 4) {
-                    stack.push(content); // 不用转换进制，用 u0×
+                    stack.push(content); // 不用转换进制，用 u0x
                 } else if (content.length() == 2) {
                     stack.push("00" + content);
                 } else {
@@ -75,7 +76,7 @@ public class FunctionConvert {
                         if (top.contains("%")) {
                             temp = top;
                         } else {
-                            temp = "u0×" + top;
+                            temp = "u0x" + top;
                         }
                         if (pattern.contains("2")) {
                             //        store i16 u0x0006, i16* @x
@@ -86,7 +87,7 @@ public class FunctionConvert {
                         } else {
                             String str2 = top.substring(0, 2);
                             String str1 = top.substring(2);
-                            sb.append("store i16 u0×00" + str1 + "i16* @" + content); //调 zero page的全局变量
+                            sb.append("store i16 u0x00" + str1 + "i16* @" + content); //调 zero page的全局变量
                             sb.append(changeLine);
                             sb.append(tab);
                             stack.push("00" + str2);
@@ -133,11 +134,13 @@ public class FunctionConvert {
                         sb.append("call i16 @" + content + "(i16 " + top + ")");  //调function,传参：stack现在最顶上的两个byte
                         sb.append(changeLine);
                         sb.append(tab);
+                        stack.push("%r"+localVariable);
                         continue;
                     } else {
-                        sb.append("call i16 @" + content + "(i16 u0×" + top + ")");  //调function,传参：stack现在最顶上的两个byte
+                        sb.append("call i16 @" + content + "(i16 u0x" + top + ")");  //调function,传参：stack现在最顶上的两个byte
                         sb.append(changeLine);
                         sb.append(tab);
+                        stack.push("%r"+localVariable);
                         continue;
                     }
                 } else { // ',&'
@@ -162,19 +165,23 @@ public class FunctionConvert {
                         String temp1 = top;
                         String temp2 = top2;
                         if (!top.contains("%")) {
-                            temp1 = "u0×" + top;
+                            temp1 = "u0x" + top;
                         }
                         if (!top2.contains("%")) {
-                            temp2 = "u0×" + top2;
+                            temp2 = "u0x" + top2;
                         }
                         //  %r1 = mul i16 u0x0007, u0x0006
-                        sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + temp1 + "," + temp2);
+                        if (temp1.contains("u0x") && temp2.contains("u0x")) {
+                            sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + temp1 + ", " + temp2);
+                        } else {
+                            sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + temp1 + "," + temp2);
+                        }
                         sb.append(changeLine);
                         sb.append(tab);
                     } else {
                         String str2 = top.substring(0, 2);
                         String str1 = top.substring(2);
-                        sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + "u0×" + str1 + "," + "u0×" + str2);
+                        sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + "u0x" + str1 + ", " + "u0x" + str2);
                         sb.append(changeLine);
                         sb.append(tab);
                     }
@@ -196,7 +203,7 @@ public class FunctionConvert {
                     if (top.contains("%")) {
                         temp = top;
                     } else {
-                        temp = "u0×" + top;
+                        temp = "u0x" + top;
                     }
 //                    %r1 = add i16 1,u0x0006
                     localVariable++;
@@ -220,6 +227,7 @@ public class FunctionConvert {
                     String top = (String) stack.pop();
                     stack.push(top);
                     stack.push(top);
+//                    System.out.println("230 :"+sb);
                 }
                 if (operation.equals("LDZ")) {
                     localVariable++;
@@ -232,7 +240,7 @@ public class FunctionConvert {
                 }
                 if (operation.equals("JMP")) {
                     String top = (String) stack.pop();
-                    sb.append("    ret i16 " + top + "\n" +
+                    sb.append("ret i16 " + top + "\n" +
                             "}");
                 }
                 if (operation.equals("SWP")) {
@@ -243,9 +251,6 @@ public class FunctionConvert {
                 }
             }
         }
-
-
-        sb.append(changeLine);
         return sb.toString();
     }
 }

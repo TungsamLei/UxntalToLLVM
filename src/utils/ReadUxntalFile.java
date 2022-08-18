@@ -66,6 +66,40 @@ public class ReadUxntalFile {
         return list;
     }
 
+    public List<String> readUxntalTest(String filename) {
+        String fileName = "./Uxntal/" + filename + ".tal";
+        System.out.println("Program start to read " + fileName + "by word.");
+        List<String> list = new ArrayList<>();
+        String string = null;
+
+        try {
+            string = Files.readString(Paths.get(fileName));
+        } catch (IOException e) {
+            System.out.println("Error: The file is not exist.");
+            return null;
+        }
+
+        string = clearComment(string);
+
+        //Clear newline characters
+        string = string.replaceAll("\\n", " ");
+        string = string.replaceAll("\\r", " ");
+        // Clear blank
+        String[] arr = string.split("\s+");
+
+
+        for (String str : arr) {
+            String trimed = str.trim();
+            if (!trimed.equals("")) {
+                list.add(trimed);
+            }
+        }
+
+        // print
+        System.out.println("The content of the file: ");
+        list.stream().forEach(System.out::println);
+        return list;
+    }
 
     // Clear comment
     public String clearComment(String content) {

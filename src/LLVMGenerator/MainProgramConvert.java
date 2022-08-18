@@ -14,7 +14,7 @@ public class MainProgramConvert {
         List<RegisteredOperation> registeredOperations = new ArrayList<>();
         int registerCount = 0;
         StringBuilder sb = new StringBuilder();
-        String changeLine = "\r\n";
+        String changeLine = "\n";
         String tab = "\t";
         sb.append("define i16 @main() {");  // |0100  本程序默认i16
         if (list.get(1).toString() == "@main") {
@@ -45,7 +45,7 @@ public class MainProgramConvert {
             if (list.get(i).getType().equals("LiteralConstant")) {
                 String content = list.get(i).getContent();
                 if (content.length() == 4) {
-                    stack.push(content); // 不用转换进制，用 u0×
+                    stack.push(content); // 不用转换进制，用 u0x
                 } else if (content.length() == 2) {
                     stack.push("00" + content);
                 } else {
@@ -75,7 +75,7 @@ public class MainProgramConvert {
                         if (top.contains("%")) {
                             temp = top;
                         } else {
-                            temp = "u0×" + top;
+                            temp = "u0x" + top;
                         }
                         if (pattern.contains("2")) {
                             //        store i16 u0x0006, i16* @x
@@ -86,7 +86,7 @@ public class MainProgramConvert {
                         } else {
                             String str2 = top.substring(0, 2);
                             String str1 = top.substring(2);
-                            sb.append("store i16 u0×00" + str1 + "i16* @" + content); //调 zero page的全局变量
+                            sb.append("store i16 u0x00" + str1 + "i16* @" + content); //调 zero page的全局变量
                             sb.append(changeLine);
                             sb.append(tab);
                             stack.push("00" + str2);
@@ -127,15 +127,15 @@ public class MainProgramConvert {
                     continue;
                 } else if (indication == ';') {
                     String top = (String) stack.pop();
-//                    String top2 = (String) stack.pop();
+                    String top2 = (String) stack.pop();
 //                      %r1 = call i16 @loop(i16 u0x0010)
                     if (top.contains("%")) {
-                        sb.append("call i16 @" + content + "(i16 " + top + ")");  //调function,传参：stack现在最顶上的两个byte
+                        sb.append("call i16 @" + content + "(i16 " + top + ", i16 " + top2 + ")");  //调function,传参：stack现在最顶上的两个byte
                         sb.append(changeLine);
                         sb.append(tab);
                         continue;
                     } else {
-                        sb.append("call i16 @" + content + "(i16 u0×" + top + ")");  //调function,传参：stack现在最顶上的两个byte
+                        sb.append("call i16 @" + content + "(i16 u0x" + top + ", i16 u0x" + top2 + ")");  //调function,传参：stack现在最顶上的两个byte
                         sb.append(changeLine);
                         sb.append(tab);
                         continue;
@@ -162,19 +162,23 @@ public class MainProgramConvert {
                         String temp1 = top;
                         String temp2 = top2;
                         if (!top.contains("%")) {
-                            temp1 = "u0×" + top;
+                            temp1 = "u0x" + top;
                         }
                         if (!top2.contains("%")) {
-                            temp2 = "u0×" + top2;
+                            temp2 = "u0x" + top2;
                         }
                         //  %r1 = mul i16 u0x0007, u0x0006
-                        sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + temp1 + "," + temp2);
+                        if (temp1.contains("u0x") && temp2.contains("u0x")) {
+                            sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + temp1 + ", " + temp2);
+                        } else {
+                            sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + temp1 + "," + temp2);
+                        }
                         sb.append(changeLine);
                         sb.append(tab);
                     } else {
                         String str2 = top.substring(0, 2);
                         String str1 = top.substring(2);
-                        sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + "u0×" + str1 + "," + "u0×" + str2);
+                        sb.append("%r" + localVariable + " = " + operation.toLowerCase() + " i16 " + "u0x" + str1 + ", " + "u0x" + str2);
                         sb.append(changeLine);
                         sb.append(tab);
                     }
@@ -196,7 +200,7 @@ public class MainProgramConvert {
                     if (top.contains("%")) {
                         temp = top;
                     } else {
-                        temp = "u0×" + top;
+                        temp = "u0x" + top;
                     }
 //                    %r1 = add i16 1,u0x0006
                     localVariable++;
@@ -211,6 +215,11 @@ public class MainProgramConvert {
                     continue;
                 }
                 if (operation.equals("JSR")) {
+                    localVariable++;
+                    sb.append("ret i16 %r"+localVariable);
+                    sb.append(changeLine);
+                    sb.append(tab);
+                    stack.push("%r"+localVariable);
                     continue;
                 }
                 if (operation.equals("POP")) {
@@ -226,15 +235,15 @@ public class MainProgramConvert {
 //                    System.out.println("226: registercount" + registerCount);
                     stack.push(registeredOperations.get(registerCount - 1).getValue());
 //                            %r1 = load i16, i16* @x
-                    sb.append("%r" + localVariable + " = load i16, i16* " + registeredOperations.get(registerCount-1).getName());
+                    sb.append("%r" + localVariable + " = load i16, i16* " + registeredOperations.get(registerCount - 1).getName());
                     sb.append(changeLine);
                     sb.append(tab);
                 }
             }
         }
 
-        sb.append("call i16 @putc(i16 %r" + localVariable + ") \n" +
-                "    ret i16 0\n" +
+        sb.append("call i16 @putc(i16 %r" + localVariable + ")\n" +
+                "\tret i16 0\n" +
                 "}");
         sb.append(changeLine);
         sb.append("declare dso_local i16 @printf(i8*, ...)\n" +

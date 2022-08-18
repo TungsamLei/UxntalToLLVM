@@ -92,7 +92,8 @@ public class Main {
                     }
 
                     System.out.println("Convert utils.Function " + i + " into LLVM.");
-
+                    String functionLLVM = functionConvert.convert(functionTokenList, stack);
+                    System.out.println(functionLLVM);
                 }
             }
         } else {
@@ -110,7 +111,8 @@ public class Main {
             }
 
             System.out.println("Convert Label into LLVM.");
-
+            String labelLLVM = labelConvert.convert(labelTokenList, stack);
+            System.out.println(labelLLVM);
         } else {
             System.out.println("Label is null.");
         }
