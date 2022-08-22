@@ -59,23 +59,6 @@ public class Main {
         System.out.println("Convert Main Program into LLVM.");
         String mainProgramLLVM = mainProgramConvert.convert(mainProgramTokenList, stack);
         System.out.println(mainProgramLLVM);
-//        tokensMap.functionConvert(mainProgramTokenList);
-//        System.out.println("AddressLabel object:");
-//        for (AddressLabel a : tokensMap.addressLabelList) {
-//            if (a.isAbsolute(a.getIndication())) {
-//                System.out.println(a.getIndication() + "" + a.getContent());
-//            }
-//        }
-//        System.out.println("TokenList:");
-//        for (TokenObject token : mainProgramTokenList) {
-//            if (!token.getType().equals("unknown"))
-//                System.out.print(token.toString() + "  ");
-//        }
-//        System.out.println();
-//        System.out.println("Functions:");
-//        for (utils.Function func : tokensMap.functionList) {
-//            System.out.println("@" + func.getName());
-//        }
 
         System.out.println("--------------------------------------------------------------------");
         System.out.println("Convert function into token objects.");
