@@ -6,7 +6,6 @@ import java.util.*;
 
 public class TokensMap {
     public List<AddressLabel> addressLabelList;
-    public List<Function> functionList;
 
 
     public List<TokenObject> tokensMap(List<String> stringList) throws Exception {

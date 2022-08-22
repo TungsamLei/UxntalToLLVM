@@ -19,7 +19,6 @@
 package utils;
 
 import Tokens.Operation;
-import Tokens.Register;
 import Tokens.TokenObject;
 
 import java.util.List;

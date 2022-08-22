@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="testing">
-      <change afterPath="$PROJECT_DIR$/src/Testing/MainProgramConvertTest.java" afterDir="false" />
+    <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="finish testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LLVMGenerator/ZeroPageConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LLVMGenerator/ZeroPageConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OperationType/TransferMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Testing/TokensMap_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Testing/TokensMap_test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Testing/ZeroPageConvertTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Testing/ZeroPageConvertTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Function.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +45,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
   }
 }</component>
   <component name="RunManager" selected="JUnit.Testing in UxntalToLLVM">
@@ -166,7 +162,11 @@
       <workItem from="1660655155205" duration="42971000" />
       <workItem from="1660737086996" duration="9158000" />
       <workItem from="1660751341765" duration="1369000" />
-      <workItem from="1660799004044" duration="19887000" />
+      <workItem from="1660799004044" duration="20272000" />
+      <workItem from="1660982929071" duration="2179000" />
+      <workItem from="1661087035162" duration="84000" />
+      <workItem from="1661092978013" duration="4664000" />
+      <workItem from="1661169164234" duration="2382000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1658288260773</created>
@@ -294,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660834828330</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="finish testing">
+      <created>1660837257910</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1660837257910</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,7 +329,8 @@
     <MESSAGE value="mainprogramconvert debug finally T_T" />
     <MESSAGE value="completed except testing" />
     <MESSAGE value="testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing" />
+    <MESSAGE value="finish testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
