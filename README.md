@@ -5,7 +5,7 @@ This is a postgraduate student's final project of University of Glasgow.
 
 As the title says, this project is to design and implement a compiler that could compile some basic Uxntal code to LLVM IR code.
 
-This project was developed in Java (based on Java 17.0.3.1, Junit 4.13.1) using IntelliJ IDEA 2022.1.1. Java 17.0.3.1 and Junit 4.13.1 are external libraries. And this project is not a maven project but a IntelliJ IDEA project. So the user of this project is recommended to It is recommended that users of this program configure their own suitable environment and dependency packages. For cases where the above environment is not used, the authors do not guarantee that the program will run successfully.
+This project was developed in Java (based on Java 17.0.3.1, Junit 4.13.1) using IntelliJ IDEA 2022.1.1. Java 17.0.3.1 and Junit 4.13.1 are external libraries. And this project is not a maven project but a IntelliJ IDEA project. It is recommended that users of this program configure their own suitable environment and dependency packages. For cases where the above environment is not used, the authors do not guarantee that the program will run successfully.
 
 ## Project structure
 
