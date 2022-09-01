@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="debug" />
+    <list default="true" id="05cf9c0b-40ac-4cb9-a2f2-34c4438d843e" name="Changes" comment="debug">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +49,21 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.Testing in UxntalToLLVM">
+  <component name="RunManager" selected="Application.FinalLLVM">
+    <configuration name="FinalLLVM" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FinalLLVM" />
+      <module name="UxntalToLLVM" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="UxntalToLLVM" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FunctionConvert_test.mainProgramConvertTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="UxntalToLLVM" />
       <extension name="coverage">
@@ -58,21 +76,6 @@
       <option name="MAIN_CLASS_NAME" value="Testing.FunctionConvert_test" />
       <option name="METHOD_NAME" value="mainProgramConvertTest" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainProgramConvert_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="UxntalToLLVM" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Testing" />
-      <option name="MAIN_CLASS_NAME" value="Testing.MainProgramConvert_test" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -107,29 +110,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ZeroPageConvert_test.zeroPageConvertTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="UxntalToLLVM" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Testing" />
-      <option name="MAIN_CLASS_NAME" value="Testing.ZeroPageConvert_test" />
-      <option name="METHOD_NAME" value="zeroPageConvertTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FinalLLVM" />
         <item itemvalue="JUnit.Testing in UxntalToLLVM" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.FunctionConvert_test.mainProgramConvertTest" />
         <item itemvalue="JUnit.MainProgramConvert_test.mainProgramConvertTest" />
-        <item itemvalue="JUnit.MainProgramConvert_test" />
-        <item itemvalue="JUnit.ZeroPageConvert_test.zeroPageConvertTest" />
       </list>
     </recent_temporary>
   </component>
@@ -163,7 +150,15 @@
       <workItem from="1660982929071" duration="2179000" />
       <workItem from="1661087035162" duration="84000" />
       <workItem from="1661092978013" duration="4664000" />
-      <workItem from="1661169164234" duration="2682000" />
+      <workItem from="1661169164234" duration="3527000" />
+      <workItem from="1661256203480" duration="7593000" />
+      <workItem from="1661407974832" duration="13404000" />
+      <workItem from="1661522562055" duration="49000" />
+      <workItem from="1661587105558" duration="2288000" />
+      <workItem from="1661675025137" duration="2344000" />
+      <workItem from="1661694407537" duration="30000" />
+      <workItem from="1661865257378" duration="2617000" />
+      <workItem from="1662027436805" duration="1986000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1658288260773</created>
@@ -305,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661186173450</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="debug">
+      <created>1661186543252</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1661186543252</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
